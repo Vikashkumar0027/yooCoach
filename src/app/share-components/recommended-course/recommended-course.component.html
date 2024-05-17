@@ -1,0 +1,16 @@
+
+<ion-row mode="md">
+  <swiper #swiperComponent [config]="bannerConfigs" class="banners">
+    <ng-template swiperSlide *ngFor="let list of preCourseList">
+      
+      <ion-card color="light_yellow" class="card" type="ion-button" (click)="bannerData(list)">
+        <img [src]="list?.image" />
+        <ion-card-header>
+          <ion-card-title>{{list?.courseName}}</ion-card-title>
+        </ion-card-header>
+      
+      </ion-card>
+     
+    </ng-template>
+  </swiper>
+</ion-row>

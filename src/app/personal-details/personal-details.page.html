@@ -1,0 +1,105 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>personalDetails</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content class="ion-padding">
+    <ion-text color="primary personal_dtl">
+        <h2 class="h2_heading">Fill your personal details</h2>
+    </ion-text>
+
+    <form #f1="ngForm" (ngSubmit)="onSubmit(f1)">
+
+        <ion-grid class="ion-no-padding ion-margin-top">
+            <ion-row>
+                <ion-col>
+
+                    <ion-text> Student name*</ion-text>
+                    <ion-input class="ion-border ion-margin-bottom" type="text" name="name" ngModel #name="ngModel" required>
+                    </ion-input>
+                    <ion-text color="danger" *ngIf="!name.valid && name.touched">
+                        <p class="errorMsg">Please enter your Name</p>
+                    </ion-text>
+
+                    <ion-text> Email id*</ion-text>
+                    <ion-input class="ion-border ion-margin-bottom" type="text" name="address" ngModel #address="ngModel" required>
+                    </ion-input>
+                    <ion-text color="danger" *ngIf="!address.valid && address.touched">
+                        <p class="errorMsg">Please enter your Email</p>
+                    </ion-text>
+
+                    <ion-text> Parent name</ion-text>
+                    <ion-input class="ion-border ion-margin-bottom" type="text" name="parent" ngModel parent #parentCtrl="ngModel" required>
+                    </ion-input>
+                    <ion-text color="danger" *ngIf="!parentCtrl.valid && parentCtrl.touched">
+                        <p class="errorMsg">* Please enter Parent Name</p>
+                    </ion-text>
+
+                    <!-- <ion-text>Mobile number</ion-text>
+                    <ion-input class="ion-border ion-margin-bottom" type="tel" name="phone" ngModel #phone="ngModel" minlength="10" maxlength="10" required>
+                    </ion-input>
+                    <ion-text color="danger" *ngIf="!phone.valid && phone.touched">
+                        <p class="errorMsg">* Please enter a valid mobile number</p>
+                    </ion-text> -->
+
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col class="ion-margin-end">
+                    <ion-text>Roll number</ion-text>
+                    <ion-input class="ion-border ion-margin-bottom" type="text" name="roll" ngModel #rollCtrl="ngModel" required>
+                    </ion-input>
+                    <ion-text color="danger" *ngIf="!rollCtrl.valid && rollCtrl.touched">
+                        <p class="errorMsg">* please Enter Roll no.</p>
+                    </ion-text>
+                </ion-col>
+                <ion-col>
+                    <ion-text>Date of joining</ion-text>
+
+                    <!-- <ion-datetime-button datetime="date" class="ion-border"> </ion-datetime-button>
+
+                    <ion-modal [keepContentsMounted]="true">
+                        <ng-template>
+                            <ion-datetime id="date" name="date" ngModel #dateCtrl="ngModel" presentation="date" [showDefaultButtons]="true"></ion-datetime>
+                        </ng-template>
+                    </ion-modal> -->
+
+
+                    <!-- <ion-input class="ion-border ion-margin-bottom"
+          type="text"
+          name="state"
+          ngModel
+          #stateCtrl="ngModel"
+          required>
+          </ion-input> -->
+                    <!-- <ion-text color="danger" *ngIf="!stateCtrl.valid && stateCtrl.touched">
+            <p class="errorMsg">* please Date of joining.</p>
+          </ion-text> -->
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+
+                    <ion-text>Upload your pic</ion-text>
+                    <ion-input class="ion-border ion-margin-bottom" type="file" (change)="onFileChange($event)" name="image" ngModel #imageCtrl="ngModel" required>
+                    </ion-input>
+                    <ion-text color="danger" *ngIf="!imageCtrl.valid && imageCtrl.touched">
+                        <p class="errorMsg">* Please enter a valid Upload your pic</p>
+                    </ion-text>
+
+                </ion-col>
+            </ion-row>
+
+        </ion-grid>
+
+
+        <!-- <ion-button class="custom-btn ion-padding" [disabled]="!f1.valid" type="submit" expand="full block" size="large">
+      SAVE & CONTINUE
+    </ion-button> -->
+        <ion-button class="custom-btn ion-padding" [disabled]="!f1.valid" type="submit" expand="full block" size="large" color="dark-orange">save profile</ion-button>
+    </form>
+<!-- <ion-button (click)="getUrl()">getApiTesting</ion-button> -->
+<button expand="full block" size="large" color="primary" routerLink="/tabs">test</button>
+</ion-content>

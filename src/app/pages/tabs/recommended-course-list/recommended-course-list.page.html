@@ -1,0 +1,39 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>recommendedCourseList</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-header>
+  <ion-toolbar color="pinks">
+      <ion-buttons class="courses-panel">
+          <ion-menu-button>
+              <ion-icon class="menuicon" name="menu-outline"></ion-icon> 
+          </ion-menu-button> <span>Primium Courses</span>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-empty-screen *ngIf="dataIs" [model]="model"></app-empty-screen>
+  <div class="checkBox">
+    <!-- <h2 class="h2_heading ion-padding-start"  *ngIf="!dataIs" >Select your subject</h2> -->
+    <ion-grid>
+        <ion-row>
+       
+            <ion-col size="6" class="checkbox-item ion-no-margin ion-no-padding" *ngFor="let list of preCourseList; " >
+                <ion-card-content class="ion-no-padding card-content-md card_content_md" type="ion-buttons" >
+                    <ion-label >
+                        <img [src]="list?.image"> {{list?.courseName}}
+                    </ion-label>
+                   
+                    <ion-checkbox (click)="selectMember(list)" [(ngModel)]="list.isChecked"></ion-checkbox>
+
+                </ion-card-content>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+</div>
+
+</ion-content>

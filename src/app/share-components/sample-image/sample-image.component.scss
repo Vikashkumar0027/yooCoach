@@ -1,0 +1,28 @@
+.icon{
+    // justify-content: flex-end;
+    font-size: 2rem;
+    padding-bottom: 21px;
+}
+ion-content {
+    --background: #F2F6F9;
+}
+
+#outerContainer { 
+    position: relative;
+    padding-top: 115px;
+ }
+.center-right{
+    position: absolute;
+    top: 22%;
+    right: 4px;
+    transform: translateY(-50%);
+    z-index: 9;
+}
+
+.containers {
+    width: 2000px;
+    border: 1px solid lightcoral;
+    height: 500px;
+    overflow: scroll;
+  }
+  

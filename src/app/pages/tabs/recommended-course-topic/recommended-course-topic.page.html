@@ -1,0 +1,49 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>recommendedCourseTopic</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-header mode="md">
+  <ion-toolbar color="pinks" class="">
+      <ion-title class="ion-no-padding">
+          <ion-label>{{course}}
+          </ion-label>
+
+      </ion-title>
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="/tabs/recommended-course-list"></ion-back-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-accordion-group class="cours-acordian ion-no-padding" *ngFor="let list of alldataList">
+    <ion-accordion  value="list.title">
+        <ion-item slot="header" class="acordian_tab" color="white">
+            <ion-label class="primary" (click)="alert(list)">{{list.chapter.chapter_title}}</ion-label>
+        </ion-item>
+
+        <div class="ion-padding iner_acordian ion-margin-start ion-margin-end" slot="content" *ngFor="let data of list?.topic">
+            <div (click)="openDoc(data)">
+              <ion-icon *ngIf="data.type =='yotube'" name="play-circle-outline" color="danger"></ion-icon>
+                <ion-icon  *ngIf="data.type !=='yotube'" name="document-outline" color="danger"></ion-icon>{{data.topic_name}}
+            </div>
+        </div>
+   
+        <!-- <ng-container  *ngFor="let data of list?.topic">
+
+            <div *ngIf="data.upload_video != ''" class="ion-padding iner_acordian ion-margin-start ion-margin-end" slot="content" >
+                <div (click)="vdoOpen(data?.upload_doc)"  >
+                    <ion-icon  name="play-circle-outline" color="danger"></ion-icon>{{data.topic_name}}
+                </div>
+            </div>
+        </ng-container> -->
+    
+      
+    </ion-accordion>
+
+</ion-accordion-group>
+
+</ion-content>

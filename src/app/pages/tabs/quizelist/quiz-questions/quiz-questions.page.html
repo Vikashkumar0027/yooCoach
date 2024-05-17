@@ -1,0 +1,190 @@
+<!-- *ngIf="!containertab" -->
+<ion-content class="content" *ngIf="!containertab">
+
+    <ng-container>
+        <div class="ion_img">
+            <ion-item lines="none" color="transparent">
+                <ion-buttons slot="start">
+                    <ion-icon (click)="confirmExitExam()" class="backIcon" name="arrow-back-outline"></ion-icon>
+                    <!-- <ion-back-button [defaultHref]="getPreviousUrl()"></ion-back-button> -->
+                    <!-- <ion-back-button (click)="confirmExitExam()"></ion-back-button> -->
+                    <!-- <ion-back-button defaultHref="tabs/quizelist/math"></ion-back-button> -->
+                </ion-buttons>
+                <ion-label>
+                    <h3> Quiz Started</h3>
+                </ion-label>
+               
+            </ion-item>
+             <!-- its show timers -->
+             <div class="ion-text-center timers">
+                <ion-label>
+                    <!-- 1 hrs -->
+                    {{counter}} <ion-text class="minuts">minutes</ion-text> <br>
+                    <div *ngIf="countdownDisplay">
+                        <ion-label>{{countdownDisplay}}</ion-label>
+                    </div>
+                </ion-label>
+            </div>
+        </div>
+
+        <div class="login-section ion-padding">
+
+
+            <!-- ites show Question Header Box -->
+            <div class="grid test-grid">
+                <!-- its show timers -->
+                <!-- <div class="ion-text-center timers">
+                    <ion-label>
+
+                        {{counter}} <ion-text class="minuts">minutes</ion-text> <br>
+                        <div *ngIf="countdownDisplay">
+                            <ion-label>{{countdownDisplay}}</ion-label>
+                        </div>
+                    </ion-label>
+                </div> -->
+
+                <ion-card color="white">
+                    <ion-card-header>
+                        <ion-item-divider color="white">
+                            <ion-badge class="first" slot="start" color="success">10</ion-badge>
+                            <ion-label class="cartlebel">Question {{currentQuestion +
+                                1}}/{{questionLists.length}}</ion-label>
+                            <ion-badge slot="end" color="lightyellow">5</ion-badge>
+                        </ion-item-divider>
+                    </ion-card-header>
+
+                    <!-- *ngIf="questionLists.length>0" -->
+                    <ion-card-content>
+                        <app-mathjx [mathString]="questionLists[currentQuestion]?.question"></app-mathjx>
+                       
+                    </ion-card-content>
+                </ion-card>
+
+             
+                <ion-list class="ion-no-padding  cardboder">
+                    <ion-radio-group [value]='values'>
+ 
+                        
+                        <ion-item lines="none" color="transparent" color="dashboard"
+                            *ngFor="let option of questionLists[currentQuestion]?.options" (click)="checkValue(option)">
+                            <app-mathjx [mathString]="option?.option"></app-mathjx>
+                            <!-- <ion-label  [innerHTML]="option?.option"></ion-label> -->
+                            <ion-radio slot="end" [value]="option?.option"></ion-radio>
+                            <!-- <ion-radio slot="end" [value]="option?.option"></ion-radio> -->
+                        </ion-item>
+                    </ion-radio-group>
+                </ion-list>
+                <!-- its show Botton -->
+                <ion-item lines="none" color="transparent">
+                    <ion-button class="prev" [disabled]="currentQuestion==0" slot="start" color="medium" class="next"
+                        (click)="previousQuestion()">Prev</ion-button>
+                    <ion-button class="next" *ngIf="currentQuestion+1 !== questionLists.length" slot="end" color="dark-orange"
+                        (click)="nextQuestion()">Next</ion-button>
+                    <ion-button class="nextSubmit" *ngIf="currentQuestion+1 == questionLists.length" slot="end" color="success"
+                        (click)="nextContainer()">Submit & Next </ion-button>
+                </ion-item>
+                <!-- <ion-button (click)="resultFunction()">result</ion-button> -->
+                
+            </div>
+        </div>
+    </ng-container>
+
+   
+</ion-content>
+
+
+
+
+<!-- Score card -->
+<!-- *ngIf="containertab" -->
+<ion-content class="contentScore" *ngIf="containertab">
+    <ng-container>
+        <!-- transparent -->
+        <div class="ion_img">
+            <ion-item lines="none" color="transparent">
+                <ion-buttons slot="start">
+                    <!-- <ion-back-button [defaultHref]="getPreviousUrl()"></ion-back-button> -->
+                    <ion-back-button defaultHref="tabs/quizelist/math"></ion-back-button>
+                </ion-buttons>
+                <ion-label>
+                    <h3> Quiz finished</h3>
+                </ion-label>
+            </ion-item>
+        </div>
+
+        <div class="imgScore">
+            <ion-img src="assets/img/scrore.png"></ion-img>
+            <ion-label class="ion-text-center curcal_text">
+                <strong>
+                    <p>Your score</p>
+                </strong>
+                <strong>
+                    <h1>{{(correctAnswer)+'/'+questionLists.length}}</h1>
+                </strong>
+            </ion-label>
+            
+        </div>
+        
+
+        <div class="card-box">
+            <div class="grade">
+                <h2 *ngIf="grade == 'Fails'">Oops! <br><ion-text> Please must do hard work.</ion-text></h2>
+                <h2 *ngIf="grade == 'Good'">Good! <br><ion-text>Keep up the hard work.</ion-text></h2>
+                <h2 *ngIf="grade == 'Better'">Better! <br><ion-text> Keep up the hard work.</ion-text></h2>
+                <h2 *ngIf="grade == 'Best'">Notable Achievement! <br><ion-text>Keep up the hard work.</ion-text> </h2>
+                <h2 *ngIf="grade == 'Excellent'">Outstanding Achievement! <br><ion-text>Keep it up.</ion-text> </h2>
+            </div> 
+            <ion-card class="scorecard">
+                <!-- <ion-card-header>
+                    <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+                    <ion-card-title>Card Title</ion-card-title>
+                </ion-card-header> -->
+               
+                <ion-card-content>
+    
+                    <ion-item lines="none">
+                        <ion-label slot="start">
+                            <ion-icon color="darkblue" name="radio-button-on-outline"></ion-icon>
+                            <!-- <ion-text color="darkblue"><strong>{{completation | number: '0.0-0'}}%</strong> </ion-text> -->
+                            <ion-text
+                                color="darkblue"><strong>{{questionLists.length-(correctAnswer+inCorrectAnswer)}}</strong>
+                            </ion-text>
+    
+                            <!-- <p>Completaion</p> -->
+                            <p>Skip Question</p>
+                        </ion-label>
+                        <ion-label slot="end" class="paddings">
+                            <ion-icon color="darkblue" name="radio-button-on-outline"></ion-icon>
+                            <ion-text color="darkblue"><strong>{{questionLists.length}}</strong> </ion-text>
+                            <p>Total Question</p>
+                        </ion-label>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <ion-label slot="start">
+                            <ion-icon color="darkblue" name="radio-button-on-outline"></ion-icon>
+                            <ion-text color="darkblue"><strong>{{correctAnswer}}</strong> </ion-text>
+                            <p>Correct</p>
+                        </ion-label>
+                        <ion-label class="paddings">
+                            <ion-icon color="danger" name="radio-button-on-outline"></ion-icon>
+                            <ion-text color="danger"><strong>{{inCorrectAnswer}}</strong></ion-text>
+                            <p>Wrong</p>
+                        </ion-label>
+                    </ion-item>
+                </ion-card-content>
+    
+    
+    
+            </ion-card>
+
+        </div>
+
+        <div class="texts">
+         
+
+        </div>
+
+
+    </ng-container>
+    <ion-button color="yellow" expand="full" (click)="checkAnswer()">Check Answer</ion-button>
+</ion-content>

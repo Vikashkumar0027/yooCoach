@@ -1,0 +1,51 @@
+
+<ion-header mode="md">
+  <ion-toolbar color="pinks" class="ion-padding-top">
+    <ion-title class="ion-no-padding">
+      <ion-label color="white">Contact
+        <p class="ion-padding-bottom">You can connect with us these step</p>
+      </ion-label>
+    </ion-title>
+    <ion-buttons slot="start" class="ion-margin-bottom">
+      <ion-back-button defaultHref="/tabs/dashboard"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content >
+
+ <ion-item color="white" lines="none" class="shadow-box">
+  <ion-card class="icon" color="lightyellow"><ion-icon name="call-outline"></ion-icon></ion-card>&nbsp;&nbsp;
+    <ion-label class="ion-no-margin">
+      <ion-text><h3><strong>Phone Number</strong></h3></ion-text>
+      <p >+91 {{data?.mobile_number}}</p>
+  </ion-label>
+</ion-item>
+
+<ion-item color="white" lines="none" class="shadow-box">
+   <ion-card class="icon" color="lightblue"><ion-icon name="mail-outline"></ion-icon></ion-card>&nbsp;&nbsp;
+    <ion-label class="ion-no-margin">
+      <ion-text><h3><strong>Email id</strong></h3></ion-text>
+      <p >{{data?.email}}</p>
+  </ion-label>
+</ion-item>
+
+<ion-item color="white" lines="none" class="shadow-box">
+  <ion-card class="icon" color="success"><ion-icon name="chatbubbles-outline"></ion-icon></ion-card>&nbsp;&nbsp;
+   <ion-label class="ion-no-margin" (click)="goChatBox()">
+     <ion-text><h3><strong>Chat with us</strong></h3></ion-text>
+     <p>Live chat avilable for you</p>
+ </ion-label>
+</ion-item>
+
+<ion-item color="white" lines="none" class="shadow-box">
+  <ion-card class="icon" color="skyblue"><ion-icon name="location-outline"></ion-icon></ion-card>&nbsp;&nbsp;
+   <ion-label class="ion-no-margin">
+     <ion-text><h3><strong>Address</strong></h3></ion-text>
+     <p>{{data?.address}}</p>
+ </ion-label>
+</ion-item>
+
+</ion-content>

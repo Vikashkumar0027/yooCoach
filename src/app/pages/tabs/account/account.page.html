@@ -1,0 +1,158 @@
+<ion-header>
+    <ion-toolbar color="pinks">
+        <ion-buttons class="courses-panel">
+            <ion-menu-button>
+                <ion-icon class="menuicon" name="menu-outline"></ion-icon> 
+            </ion-menu-button> <span>My Account</span>
+        </ion-buttons>
+        
+        <!-- <ion-title>My Account</ion-title> -->
+    </ion-toolbar>
+    <app-accountbanner class="account_page" [bannerData]="header" (accountType)="bannerData($event)"></app-accountbanner>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <app-payment *ngIf="accoutCategory == 2"></app-payment>
+    <app-attendance *ngIf="accoutCategory == 3"></app-attendance>
+    <app-purchase *ngIf="accoutCategory ==4"></app-purchase>
+    <app-quiz *ngIf="accoutCategory == 5"></app-quiz>
+
+
+    <ng-container *ngIf="accoutCategory == 1">
+        <ion-label color="dark">
+            <h4 class="h2_heading"><strong>    Update your profile </strong> </h4>
+        </ion-label>
+
+        <form #f1="ngForm" (ngSubmit)="onSubmit(f1)">
+
+            <ion-grid class="ion-no-padding ion-margin-top">
+                <ion-row>
+                    <ion-col>
+
+                      <div *ngIf="!isFreeAccess">
+                        <ion-text> Student name*</ion-text>
+                        <ion-input class="ion-border ion-margin-bottom" 
+                        type="text" readonly
+                         name="name" ngModel #name="ngModel" required>
+                        </ion-input>
+                        <ion-text color="danger" *ngIf="!name.valid && name.touched">
+                            <p class="errorMsg">Please enter your Name</p>
+                        </ion-text>
+                      </div>
+
+                      <div *ngIf="isFreeAccess">
+                        <ion-text> Student name*</ion-text>
+                        <ion-input class="ion-border ion-margin-bottom" 
+                        type="text"
+                         name="name" ngModel #name="ngModel" required>
+                        </ion-input>
+                        <ion-text color="danger" *ngIf="!name.valid && name.touched">
+                            <p class="errorMsg">Please enter your Name</p>
+                        </ion-text>
+                      </div>
+
+                       <div *ngIf="!isFreeAccess">
+                        <ion-text> Email id*</ion-text>
+                        <ion-input class="ion-border ion-margin-bottom" type="text" name="address" ngModel #address="ngModel" readonly  required>
+                        </ion-input>
+                        <ion-text color="danger" *ngIf="!address.valid && address.touched">
+                            <p class="errorMsg">Please enter your Email</p>
+                        </ion-text>
+                       </div>
+                       <div *ngIf="isFreeAccess">
+                        <ion-text> Email id*</ion-text>
+                        <ion-input class="ion-border ion-margin-bottom" type="text" name="address" ngModel #address="ngModel" required>
+                        </ion-input>
+                        <ion-text color="danger" *ngIf="!address.valid && address.touched">
+                            <p class="errorMsg">Please enter your Email</p>
+                        </ion-text>
+                       </div>
+
+                       <div *ngIf="!isFreeAccess">
+                        <ion-text> Parents name</ion-text>
+                        <ion-input class="ion-border ion-margin-bottom" type="text" name="parentCtrl" ngModel  #parentCtrl="ngModel" readonly required>
+                        </ion-input>
+                        <ion-text color="danger" *ngIf="!parentCtrl.valid && parentCtrl.touched">
+                            <p class="errorMsg">* Please enter Parent Name</p>
+                        </ion-text>
+                       </div>
+
+                       <div>
+                        <ion-text>Mobile number</ion-text>
+                        <ion-input class="ion-border ion-margin-bottom" type="tel" name="phone" ngModel #phone="ngModel" minlength="10" maxlength="10" readonly >
+                        </ion-input>
+                        <!-- <ion-text color="danger" *ngIf="!phone.valid && phone.touched">
+                            <p class="errorMsg">* Please enter a valid mobile number</p>
+                        </ion-text> -->
+                       </div>
+
+                    </ion-col>
+                </ion-row>
+
+                <ion-row *ngIf="!isFreeAccess">
+                    <ion-col class="ion-margin-end">
+                        <ion-text>Reg. Number</ion-text>
+                        <ion-input class="ion-border ion-margin-bottom" type="number" name="rollCtrl" ngModel #rollCtrl="ngModel" readonly required>
+                        </ion-input>
+                        <ion-text color="danger" *ngIf="!rollCtrl.valid && rollCtrl.touched">
+                            <p class="errorMsg">* please Enter Roll no.</p>
+                        </ion-text>
+                    </ion-col>
+                    <ion-col>
+                        <ion-text>Date of joining</ion-text>
+                        <ion-input type="date" readonly name="dateCtrl" ngModel #dateCtrl="ngModel" ></ion-input>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row *ngIf="!isFreeAccess">
+
+                    <ion-col class="ion-margin-end" size="5">
+                        <ion-text >Class</ion-text>
+                        <ion-input class="ion-border ion-margin-bottom" type="text" name="classCtrl" ngModel #classCtrl="ngModel" readonly required>
+                        </ion-input>
+                        <ion-text color="danger" *ngIf="!classCtrl.valid && classCtrl.touched">
+                            <p class="errorMsg">* please Enter Class</p>
+                        </ion-text>
+                    </ion-col>
+                    <ion-col size="6">
+                        <ion-text class="ion-text-center">Batch Timing</ion-text>
+                        <ion-input type="text" readonly name="batchCtrl" ngModel #batchCtrl="ngModel" ></ion-input>
+                    </ion-col>
+                </ion-row>
+                <ion-row *ngIf="!isFreeAccess">
+                    <ion-col  class="profile-image">
+                       <figure>
+                            <ion-img [src]="apidata?.student_photo" alt="Student Image" width="200px" ></ion-img>
+                       </figure>
+                      </ion-col>
+                    
+                </ion-row>
+                <ion-row *ngIf="!isFreeAccess">
+                    <ion-col *ngIf='apidata?.student_photo == ""' >
+                    <!-- <ion-col size="6"> -->
+
+                    
+                        <ion-text>Upload your pic</ion-text>
+                        <ion-input class="ion-border ion-margin-bottom" type="file" readonly
+                        (change)="onFileChange($event)" name="image" ngModel #imageCtrl="ngModel">
+                        </ion-input>
+                        
+                        <!-- <ion-text color="danger" *ngIf="!imageCtrl.valid && imageCtrl.touched">
+                            <p class="errorMsg">* Please enter a valid Upload your pic</p>
+                        </ion-text> -->
+                      
+                    </ion-col>
+                    <!-- <ion-col size="2">  </ion-col>
+                    
+                    <ion-col size="4">
+                            <img [src]="apidata?.student_photo" alt="No Image" width="100" > 
+                    </ion-col> -->
+                </ion-row>
+
+            </ion-grid>
+<!-- [disabled]="!f1.valid" -->
+            <ion-button *ngIf="apidata?.student_photo == '' || isFreeAccess" class="custom-btn ion-padding"  type="submit" expand="full block" size="large" color="yellow">Update profile</ion-button>
+        </form>
+    </ng-container>
+
+</ion-content>

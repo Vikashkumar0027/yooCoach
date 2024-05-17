@@ -1,0 +1,126 @@
+/* body {
+    margin: 0;
+    padding: 0;
+    background-color: #006653;
+    color: aliceblue;
+    font-family: 'Poppins', sans-serif;
+} */
+
+main {
+    /* width: 1400px; */
+    width: 100%;
+    margin: 0 auto;
+    /* height: 75vh; */
+    height: 100%;
+}
+
+.icon-wrapper{
+    /* justify-content: center; */
+    text-align: center;
+    cursor: pointer;
+}
+
+.control-icon{
+    display: block;
+    /* padding: 15px; */
+    height: 30px;
+    width: 30px;
+    border-radius: 10px;
+    background-color: #1f1f1f8e;
+}
+
+#site-title {
+    font-style: 'Permanent Marker', cursive;
+}
+
+#join-btn{
+    position: fixed;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+    background-color: #1f1f1f8e;
+    border: none;
+    color: #fff;
+    font-size: 22px;
+    padding: 20px 30px;
+    cursor: pointer;
+}
+
+#user-streams {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+    gap: 1em;
+    height: 100%;
+}
+
+.video-containers {
+    position: relative;
+    /* padding: 0; */
+    margin: 0;
+    background-color: #1f1f1f8e;
+    border-radius: 10px;
+
+}
+
+
+.video-player {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.user-uid {
+    /* display: flex; */
+    display: block;
+    background-color: #1f1f1f8e;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 5px;
+    position: center;
+    /* column-gap: 1em; */
+    bottom: 10px;
+    left: 10px;
+    z-index: 9999;
+    margin: 0;
+    font-size: 18px;
+}
+
+#footer {
+    /* display: flex; */
+    display: none;
+    justify-content: center;
+    column-gap: 1em;
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    /* justify-content: center;
+    column-gap: 1em;
+    
+    height: 100px; */
+}
+
+@media screen and (max-width:1400px) {
+    main {
+        width: 100%;
+        /* margin: 0 auto; */
+    }
+    #user-streams {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    }
+}
+
+.bottom-right-div {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+     /* Adjust as needed */
+    margin: 10px;
+    background-color: #f0f0f0; /* Background color */
+    padding: 10px; /* Adjust as needed */
+    border: 1px solid #ccc; /* Border style */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow */
+}

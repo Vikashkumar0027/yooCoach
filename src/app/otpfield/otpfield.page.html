@@ -1,0 +1,25 @@
+<ion-content>
+    <div class="ion_img">
+        <ion-img src="assets/img/App Icon.png"></ion-img>
+    </div>
+
+    <div class="login-section ion-padding">
+
+        <div class="heading ">
+            <h1>Enter 6 digit <br> verification code</h1>
+        </div>
+<p>{{loginData?.otp}}</p>
+        <div class="login-form ">
+            <div class="form-input">
+                <p class="email_pera rubik">The verification code was sent to the phone number +91 <b>{{loginData?.mob_number}}</b>. Please enter the code </p>
+                <ion-item lines="none" color="white">
+                    <ng-otp-input #ngOtpInput (onInputChange)="onOtpChange($event)" [config]="configOtp"></ng-otp-input>
+                </ion-item>
+            </div>
+        </div>
+        <div class="action-button">
+
+            <ion-button [disabled]="button" color="yellow" expand="block" (click)="submit()">VERIFY</ion-button>
+        </div>
+    </div>
+</ion-content>

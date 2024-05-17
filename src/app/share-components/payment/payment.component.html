@@ -1,0 +1,59 @@
+<ng-container>
+    <ion-label color="dark">
+        <h4 class="h2_heading"><strong>    Payment history </strong> </h4>
+    </ion-label>
+    <app-empty-screen *ngIf="isImpty" [model]="model"> </app-empty-screen>
+
+    <div class="box" *ngFor="let list of paymentList">
+        <ion-item lines="none" class="ion-no-padding">
+            <ion-label slot="start" >{{list?.payment_at | date: 'dd/MM/yyyy'}}</ion-label>
+            <ion-label slot="end" >{{list?.payment_type}}</ion-label>
+        </ion-item>
+        <ion-item lines="none" class="ion-no-padding">
+            <ion-label slot="start" >Total Fee</ion-label>
+            <ion-label slot="end" >₹ {{totalFee}}</ion-label>
+        </ion-item>
+        <ion-item lines="none" class="ion-no-padding">
+            <ion-label slot="start" >Paid</ion-label>
+            <ion-label slot="end" color="success">₹ {{list?.received_fee}}</ion-label>
+        </ion-item>
+        <ion-item lines="none" class="ion-no-padding">
+            <ion-label slot="start" >Dues</ion-label>
+            <ion-label slot="end" color="danger" >₹ {{totalFee - list?.received_fee}}</ion-label>
+        </ion-item>
+      
+        <!-- <ion-item lines="none" class="ion-no-padding">
+            <ion-label class="ion-no-margin box_lable ion_padding_top" slot="start">Payment Method
+                <p class="cas_upi">{{list?.payment_type}}</p>
+            </ion-label>
+            <ion-label color="success" slot="end" class="ion-float-right ion-no-margin ion_padding_top"> {{list?.action}}
+                <ion-label class="cas_upi_amt ion-no-margin"><strong>₹{{list?.received_fee}}</strong></ion-label>
+            </ion-label>
+        </ion-item> -->
+    </div>
+
+    <!-- <div class="box" *ngFor="let list of paymentList">
+        <ion-label class="box_lable">{{list?.payment_at | date: 'dd/MM/yyyy'}}</ion-label>
+        <ion-item lines="none" class="ion-no-padding">
+            <ion-label class="ion-no-margin box_lable ion_padding_top" slot="start">Payment Method
+                <p class="cas_upi">{{list?.payment_type}}</p>
+            </ion-label>
+            <ion-label color="success" slot="end" class="ion-float-right ion-no-margin ion_padding_top"> {{list?.action}}
+                <ion-label class="cas_upi_amt ion-no-margin"><strong>₹{{list?.received_fee}}</strong></ion-label>
+            </ion-label>
+        </ion-item>
+    </div> -->
+
+    <!-- <div class="box">
+        <ion-label class="box_lable">13 March 2022, 12:00pm</ion-label>
+        <ion-item lines="none" class="ion-no-padding">
+            <ion-label class="ion-no-margin box_lable ion_padding_top" slot="start">Payment Method
+                <p class="cas_upi">UPI: 12345HJK548</p>
+            </ion-label>
+            <ion-label color="success" slot="end" class="ion-float-right ion-no-margin ion_padding_top"> Payment Done
+                <ion-label class="cas_upi_amt ion-no-margin"><strong>₹2500</strong></ion-label>
+            </ion-label>
+        </ion-item>
+    </div> -->
+
+</ng-container>

@@ -1,0 +1,63 @@
+<ion-content>
+  <!-- <ion-item color="transparent" lines="none" class="ion-no-padding config-modalbox">
+    
+    </ion-item> -->
+<div *ngIf="!samplePaper">
+  <div id="outerContainer">
+    <!-- <ion-icon color="danger"  class="close-btn icon center-right" (click)="cancel()" name="close-outline"></ion-icon> -->
+    <ion-icon color="danger" class="close-btn icon center-right" (click)="cancel()"  name="close-circle-outline"></ion-icon>
+    <div class="pdf-container" (click)="dobleTab()">
+      <pdf-viewer
+        [src]="src"
+        [render-text]="true"
+        [rotation]="0"
+        [original-size]="false"
+        [show-all]="true"
+        [fit-to-page]="false"
+        [zoom]="zoom_to"
+        [zoom-scale]="'page-width'"
+        [stick-to-page]="false"
+        [render-text]="true"
+        [external-link-target]="'blank'"
+        [autoresize]="true"
+        [show-borders]="false"
+        style="width: 100%; height: 100vh;"
+      ></pdf-viewer>
+    </div>
+
+  </div>
+
+  <div line="none" class="ion-no-margin ion-no-padding fix-btn">
+      <ion-icon  (click)="zoom_in()"  color="primary" name="add-circle-outline"></ion-icon>
+      <ion-icon  (click)="zoom_out()" color="primary"  name="remove-circle-outline"></ion-icon>
+  </div>
+</div>
+
+
+<div *ngIf="samplePaper">
+  <div id="outerContainer">
+    <ion-icon color="danger" class="close-btn icon center-right" (click)="cancel()"  name="close-circle-outline"></ion-icon>
+    <div class="pdf-container" (click)="dobleTab()">
+      <pdf-viewer
+        [src]="src"
+        [render-text]="true"
+        [rotation]="0"
+        [original-size]="false"
+        [show-all]="true"
+        [fit-to-page]="false"
+        [zoom]="9"
+        [zoom-scale]="'page-width'"
+        [stick-to-page]="false"
+        [render-text]="true"
+        [external-link-target]="'blank'"
+        [autoresize]="true"
+        [show-borders]="false"
+        style="width: 100%; height: 100vh;"
+      ></pdf-viewer>
+    </div>
+
+  </div>
+</div>
+ 
+  
+</ion-content>

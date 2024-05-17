@@ -1,0 +1,49 @@
+<ion-header mode="md">
+  <ion-toolbar color="pinks">
+    <ion-title class="ion-no-padding">
+      <ion-label color="dark">Live Chat</ion-label>
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/dashboard"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content id="content" color="white">
+  <!-- <ion-input type="text"></ion-input> -->
+  <!-- <ion-item>
+    <ion-textarea  [(ngModel)]="txtMsg" placeholder="Enter any question here..."></ion-textarea>
+  </ion-item>
+  <ion-button (click)="submit()">submit</ion-button> -->
+  
+  <!-- [class.active]='data.active' *ngFor="let data of logo; -->
+  
+  <ion-card [class.right]='data.isAdmin == false' *ngFor="let data of chatList" color="white">
+    <ion-card-content>
+      {{data.message}}
+      <!-- <br><br> -->
+    </ion-card-content>
+  </ion-card>
+  
+  <!-- <ion-card>
+    <ion-card-content>
+      my Message
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-card class="right">
+    <ion-card-content>
+      my Message
+    </ion-card-content>
+  </ion-card> -->
+  
+  </ion-content>
+    <br> <br>
+  <ion-header>
+    <ion-item class="bottom" color="white">
+      <!-- <ion-icon name="mic-outline"></ion-icon>
+      <ion-icon name="images-outline"></ion-icon> -->
+      <ion-input class="remove-focus" [(ngModel)]="txtMsg" placeholder="Enter any question here..."></ion-input>
+      <ion-icon name="send" (click)="submit()" item-right ></ion-icon>
+      </ion-item>
+  </ion-header>

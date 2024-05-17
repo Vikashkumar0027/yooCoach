@@ -1,0 +1,36 @@
+<!-- <ion-list class="ion-no-padding config-modalbox" lines="none" color="white">
+  <ion-icon class="close-btn" (click)="cancel()" name="close-outline"></ion-icon>
+  <div style="width: 100%;" id="divid" >
+
+  </div><br />
+  
+</ion-list> -->
+
+
+<ion-content>
+  <ion-icon class="close-btn" (click)="cancel()" name="close-outline"></ion-icon>
+  <div class="image-video-wrp">
+    <figure>
+        <ng-container *ngIf="videodisabled; else videoblock">
+            <img src="./assets/images/video-poster.jpg" class="img-fluid thumblin">
+        </ng-container>
+        <ng-template #videoblock >
+          <div class="">
+            <h2></h2>
+            <h3 *ngIf="isWatchYoutube"></h3>
+            <!-- <img src="./assets/images/rb.jpg" class="img-fluid thumblin"> -->
+        </div>
+          <!-- class="lockframe" width='100%'  frameborder="0" 
+      allow="encrypted-media;" style="position: absolute; top: 0; left: 0; -->
+            <iframe (click)="watchYoutube()"  width='100%;'  height='{{innerHeight}}' class="lockframe"
+      [src]="urlSafe"
+      >
+        </iframe>
+        </ng-template>
+        <!-- <div class="play-icon-box ">
+            <img (click)="changeImg()" [title]="play" [src]="videoIcon" alt="">
+        </div> -->
+    </figure>
+</div>
+<!-- <h2>{{innerHeight}}</h2> -->
+</ion-content>
