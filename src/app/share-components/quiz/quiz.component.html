@@ -1,0 +1,63 @@
+
+   <app-empty-screen *ngIf="isImpty" [model]="model"> </app-empty-screen>
+   <h4 class="h2_heading" *ngIf="quizScoreData.length >= 1"><strong>    Your quiz score </strong> </h4>
+  <ion-card class="ion-no-margin ion-margin-bottom" *ngFor="let data of quizScoreData">
+    <ion-card-header class="ion-no-padding item-divider">
+      <ion-item-divider color="white" class="ion-start-padding ion-end-padding">
+        <ion-label slot="start" color="darkblue"><b>Subject: {{data.subject_name}}</b>
+          <p>{{data.createdAt | date}} {{data.createdAt | date: 'hh:mm a'}}</p>
+        </ion-label>
+        <ion-label slot="end" color="success">{{data?.grade}}
+          <p>{{data?.duration}} M</p>
+        </ion-label>
+      </ion-item-divider>
+    </ion-card-header>
+  
+    <ion-card-content class="ion-no-padding">
+     <ion-item lines="none" color="white" >
+      <ion-label slot="start" color="darkblue"> <ion-icon  name="radio-button-on-outline"></ion-icon> {{data.total_question}}
+        <p>Total Question</p>
+      </ion-label>
+
+      <ion-label class="center" color="success">  <ion-icon  name="radio-button-on-outline"></ion-icon>{{data.correct}}
+        <p>Correct</p>
+      </ion-label>
+
+      <ion-label slot="end" color="danger"> <ion-icon  name="radio-button-on-outline"></ion-icon>{{data.wrong}}
+        <p>Wrong</p>
+      </ion-label>
+
+     </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+
+  <!-- <ion-card >
+    <ion-card-header class="ion-no-padding">
+      <ion-item-divider >
+        <ion-label slot="start" color="darkblue"><b>Subject: Math</b>
+          <p>13 March 2022, 12:00pm</p>
+        </ion-label>
+        <ion-label slot="end" color="warning">Average
+          <p>2hrs</p>
+        </ion-label>
+      </ion-item-divider>
+    </ion-card-header>
+  
+    <ion-card-content>
+     <ion-item lines="none" >
+      <ion-label slot="start" color="darkblue"> <ion-icon  name="radio-button-on-outline"></ion-icon> 20
+        <p>Total Question</p>
+      </ion-label>
+
+      <ion-label class="center" color="success">  <ion-icon  name="radio-button-on-outline"></ion-icon>10
+        <p>Correct</p>
+      </ion-label>
+
+      <ion-label slot="end" color="danger"> <ion-icon  name="radio-button-on-outline"></ion-icon>15
+        <p>Wrong</p>
+      </ion-label>
+
+     </ion-item>
+    </ion-card-content>
+  </ion-card> -->

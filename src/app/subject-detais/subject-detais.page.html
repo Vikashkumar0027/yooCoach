@@ -1,0 +1,51 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>subjectDetais</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content class="ion-padding" *ngIf="isLoading">
+   <ng-container *ngIf="isLoading">
+    <div class="ion-margin-bottom radio_label">
+
+        <ion-grid class="ion-no-padding">
+            <ion-radio-group value="fgf">
+                <ion-list-header class="ion-no-padding">
+                    <h3 class="h2_heading"> <strong>Select your class</strong></h3>
+                </ion-list-header>
+                <ion-row>
+                    <ion-col size="4" class="category-item ion-no-margin" *ngFor="let data of classes">
+                        <ion-item lines="none" class="labels" color="transparent">
+                            <!-- <ion-radio-group [(ngModel)]="radioValue" class="ion-no-padding ion-no-margin"> -->
+                            <ion-label> {{data.class_name}}</ion-label>
+                            <ion-radio [value]="data.class_name" checked="checked" (click)="classData(data)"> </ion-radio>
+                        <!-- </ion-radio-group> -->
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+            </ion-radio-group>
+        </ion-grid>
+    </div>
+    <!-- Checkbox section -->
+    <div class="checkBox">
+        <h2 class="h2_heading">What topic interest for?</h2>
+        <ion-grid class="ion-no-padding">
+            <ion-row>
+                <ion-col size="6" class="checkbox-item ion-no-margin ion-no-padding" *ngFor="let entry of subject">
+                    <ion-card-content class="ion-no-padding card-content-md card_content_md">
+                        <ion-label>
+                            <img [src]="entry.img"> {{entry.subject_name.charAt(0) | uppercase}}{{ entry.subject_name.slice(1,entry.subject_name.length) | lowercase  }}
+                        </ion-label>
+                        <ion-checkbox class="ion_check" [(ngModel)]="entry.isChecked" (click)="selectMember(entry)"></ion-checkbox>
+
+                    </ion-card-content>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+    </div>
+
+    <ion-button class="go_btn" color="dark-orange" expand="block" (click)="submit()">Go for teaching</ion-button>
+   </ng-container>
+
+</ion-content>

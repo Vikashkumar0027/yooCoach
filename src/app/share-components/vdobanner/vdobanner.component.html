@@ -1,0 +1,74 @@
+
+
+
+        
+        <ion-item *ngIf="isVdo" lines="none" class="noLiveClass">
+            <ion-label class="ion-text-center">No Videos </ion-label>
+            
+        </ion-item>
+  
+
+<div *ngIf="!isVdo">
+
+    <swiper [config]=" {
+      slidesPerView: 2.5,
+      spaceBetween: 15,
+      initialSlide:  0
+    } " class="banners ion-no-padding">
+        <ng-template swiperSlide *ngFor="let item of vdoPlaylistApiData">
+    
+            <ion-card class="product-item">
+                <!-- <ion-label (click)="playVdo(item.upload_video)"> -->
+                <ion-label (click)="playVdo(item.upload_video)">
+                    <div class="image-width">
+                        <span class="video-playicon">
+                            <ion-icon name="play-circle-outline"></ion-icon>
+                        </span>
+                        <img src="https://img.youtube.com/vi/{{item.upload_video}}/default.jpg" />
+                        <!-- <img src="assets/img/Rectangle15.png" /> -->
+                    </div>
+                    <!-- <img src="https://img.youtube.com/vi/{{item.link}}/0.jpg" /> -->
+                    <!-- <iframe width="100%" height="315" src="https://www.youtube.com/embed/0lpFQr1zznI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+                </ion-label>
+                <ion-card-header>
+                    <ion-card-subtitle>
+                        <p>{{item?.topic_name}}</p>
+                    </ion-card-subtitle>
+                    <!-- <ion-card-title > {{item.title}} </ion-card-title> -->
+                </ion-card-header>
+            </ion-card>
+        </ng-template>
+    
+        <!-- <ng-template swiperSlide >
+                      <ion-card class="product-item" >
+                       <ion-label (click)="productDetails()">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/8MN2bxMiB9A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                       </ion-label>
+                       <ion-card-header>
+                         <ion-card-subtitle>
+                           <p>Chapter</p>
+                     </ion-card-subtitle>
+                         <ion-card-title >Sanskrit Grammer  </ion-card-title>
+                       </ion-card-header>
+                      </ion-card>
+                   </ng-template>
+    
+                   <ng-template swiperSlide >
+                    <ion-card class="product-item" >
+                     <ion-label (click)="productDetails()">
+                      <iframe width="560" height="315" src="https://www.youtube.com/embed/VsupVOaPDkk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                     </ion-label>
+                     <ion-card-header>
+                       <ion-card-subtitle>
+                         <p>Chapter</p>
+                   </ion-card-subtitle>
+                       <ion-card-title >Sanskrit Grammer  </ion-card-title>
+                     </ion-card-header>
+                    </ion-card>
+                 </ng-template> -->
+    
+    
+    </swiper>
+</div>
+
+

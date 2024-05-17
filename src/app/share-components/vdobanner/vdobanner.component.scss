@@ -1,0 +1,100 @@
+// .bannersAdvertised {
+//     ion-img {
+//         width: 100%;
+//         height: 100px;
+//         border-radius: 3px;
+//         object-fit: contain;
+//         box-shadow: 0 0px 4px rgb(0 0 0 / 13%);
+//         margin: 2px 0;
+//     }
+//     iframe{
+//         margin: 5px;
+//         width: 153.15px;
+//         height:  142.98px;
+//         border-radius: 3px;
+//         object-fit: contain;
+//         box-shadow: 0 0px 4px rgb(0 0 0 / 13%);
+//         margin: 2px 0;
+//     }
+// }
+.product-item {
+    border-radius: 4px;
+    display: grid;
+    overflow: hidden;
+    background-color: transparent;
+    // box-shadow: 0 0px 5px 0 rgb(0 0 0 / 12%);
+    box-shadow: none;
+    margin: 4px 0 7px;
+    ion-card-title {
+        font-size: 13px;
+        font-weight: 500;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        height: 13px;
+        color: #1F243B;
+        margin-top: 0;
+    }
+    ion-card-subtitle {
+        font-size: 12px;
+        font-weight: 400;
+        color: #757F8D;
+        margin: -9px 0;
+    }
+    strong {
+        color: #000;
+        font-size: 14px;
+    }
+    ion-card-header {
+        // padding: 2px 6px 17px;
+        margin: -4px 12px -14px
+    }
+}
+
+// .banners {
+//     img {
+//         width: 100%;
+//         // height: 142.98px;
+//         border-radius: 9px;
+//         object-fit: contain;
+//         padding: 0px;
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//     }
+// }
+.image-width {
+    width: 100%;
+    height: 120px;
+    position: relative;
+}
+
+.image-width img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-playicon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    color: red;
+}
+
+.noLiveClass{
+    margin: -2px 10px -8px 16px;
+    border-radius: 18px;
+    ion-label {
+            padding: 17px;
+              text-align: center;
+      }
+}

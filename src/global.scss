@@ -1,0 +1,321 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+
+/* Core CSS required for Ionic components to work properly */
+
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+// its, for swiper
+@import 'swiper/css/bundle';
+// @import '~@ionic/angular/css/ionic-swiper';
+@import '~swiper/scss';
+@import '~swiper/scss/autoplay';
+// @import 'swiper/css/bundle';
+ion-content {
+    font-family: 'Rubik', sans-serif;
+}
+.my-loader-class {
+    --background: #fff;
+    --spinner-color: #ffc72a;
+}
+.alignSpinner {
+    transform: translateY(40vh);
+}
+.rubik {
+    font-family: 'Rubik', sans-serif !important;
+}
+
+.roboto {
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.heading {
+    margin-top: 20px;
+    h1 {
+        color: #1972B9;
+        font-family: "Rubik";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 27px;
+        margin-bottom: 32px;
+        margin-top: 44px;
+    }
+    .login-form {
+        .form-input {
+            position: relative;
+            margin-bottom: 10px;
+            ion-item:part(native) {
+                padding-left: 0;
+            }
+        }
+    }
+}
+
+// // for otp box
+.ng-otp-input-wrapper .ng-valid {
+    width: 30px !important;
+    height: 30px !important;
+    border: 0 !important;
+    border-bottom: 2px solid #5295CB !important;
+    border-radius: 0 !important;
+}
+// .ng-otp-input-wrapper .ng-valid {
+//     width: 30px !important;
+//     height: 30px !important;
+//     border: 0 !important;
+//     border-bottom: 2px solid #5295CB !important;
+//     border-radius: 0 !important;
+// }
+.ng-otp-input-wrapper .ng-valid:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+ng-otp-input {
+    width: 100% !important;
+}
+
+.ng-otp-input-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    text-align: center !important;
+}
+
+.ion-activatable {
+    height: 50px;
+}
+
+.action-button {
+    margin-top: 55px;
+}
+
+.h2_heading {
+    font-size: 18px !important;
+    letter-spacing: 0.02em;
+    color: #1F243B;
+    font-weight: 500;
+}
+
+.email_pera {
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    color: #1F243B;
+}
+
+.ion-margin-bottom {
+    background-color: transparent;
+}
+
+.swiper_siler .swiper .swiper-wrapper {
+    padding-left: 20px;
+}
+
+.swiper_siler .swiper .swiper-slide {
+    text-align: left !important;
+}
+
+p {
+    color: #1F243B;
+}
+
+// checkbox
+.checkbox-item {
+    padding: 5px;
+    // width: 25%;
+    float: left;
+    box-shadow: none;
+    // background-color: #fff;
+    width: 172.17px;
+    height: 100%;
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 35px;
+        margin-bottom: 4px;
+    }
+    ion-label {
+        font-size: 14px;
+        text-align: center;
+        color: #1F243B;
+        font-weight: 400;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    ion-checkbox {
+        --background: transparent;
+        --height: 35px;
+        --width: 35px;
+        --checkmark-color: #FFFFFF;
+        --background-checked: #178ED1;
+        --border-color: #ffffff;
+        --border-color-checked: #ffffff;
+        --border-radius: 0 !important;
+        width: 100%;
+        height: 100%;
+        margin-top: 0;
+        opacity: 86%;
+        position: absolute;
+        top: 0;
+    }
+}
+
+.card_content_md {
+    background-color: #fff;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 1px 5px rgb(0 0 0 / 10%);
+    border-radius: 5px;
+}
+
+.ion-border {
+    background: #FFFFFF;
+    border: 1px solid #DADADA;
+    border-radius: 5px;
+    margin-top: 8px;
+    height: 55px;
+}
+
+
+/********* this is css for courses page***********/
+
+.acordian_tab {
+    border: 1px solid #e7e6e6;
+    border-radius: 5px;
+    margin: 20px 12px 0;
+    font-size: 14px;
+}
+
+.iner_acordian {
+    box-shadow: 0px 0px 4px rgb(0 0 0 / 25%);
+    border-radius: 5px;
+    margin: 20px 30px;
+}
+
+.iner_acordian:last-child {
+    margin-bottom: 6px;
+}
+
+.account_page .swiper .swiper-slide {
+    display: flex;
+    position: relative;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: auto !important;
+    height: 100%;
+    font-size: 18px;
+    text-align: center;
+    box-sizing: border-box;
+    margin-right: 0 !important;
+}
+.account_page .acount-banner.swiper .swiper-slide{
+    display: block !important;
+    width: unset !important;
+}
+.bg_transparent {
+    background-color: transparent;
+}
+
+ion-text {
+    font-size: 14px;
+}
+  .curcal_text{
+    margin-top: 95px;
+  }
+
+.curcal_text p {
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.curcal_text h1 {
+    font-size: 43px;
+    margin-top: 8px;
+    font-weight: 600;
+}
+html, body {
+    min-width: 0 !important;
+  }
+  
+  #zmmtg-root {
+    display: none;
+  }
+
+  .exitApp .alert-wrapper {
+    background-color:#FFFFFF;
+}
+
+// .footer__leave-btn {
+//     left: -199px !important;
+// }
+
+.more-button__pop-menu {
+    text-align: unset;
+    list-style: none;
+}
+
+#participant-window {
+    padding: 0 10px;
+}
+.video-option-menu__pop-menu, .audio-option-menu {
+    display: none;
+}
+.ytp-chrome-top.ytp-show-cards-title {
+    display: none !important;
+}
+
+.meeting-info-container__wrapper {
+    display: none !important;
+}
+.pop-panel__button {
+    display: none !important;
+}
+
+.ion-border input[type=text]:focus, .remove-focus input[type=text]:focus{
+    outline:none !important;
+    outline-offset: 0px !important;
+}
+
+
+.cardboder ion-item  img{
+    width: 72% !important;
+}
+
+.premiumCourseCard {
+    box-shadow: none;
+    border-radius: 0;
+  }
+

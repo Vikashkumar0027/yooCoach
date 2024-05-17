@@ -1,0 +1,63 @@
+
+<ion-row mode="md">
+  <swiper #swiperComponent [config]="bannerConfigs" class="banners">
+    <ng-template swiperSlide *ngFor="let list of recommendedCourse">
+      <ion-card color="light_yellow" class="reccomendedcard" >
+        <ion-card-title>{{list?.title}}</ion-card-title>
+        <ion-img alt="Silhouette of mountains" [src]="list.image" ></ion-img>
+        <ion-card-header class="ion-no-padding">
+      
+              <div class="main">
+      
+                <div class="shadow-box" *ngFor="let lst of list?.sub_title">
+                  <ion-icon color="lightpink" name="radio-button-on-outline"></ion-icon>
+                  <p>{{lst}}</p>
+                </div>
+                </div>
+            
+           
+              <ion-item class="line ion-no-margin" color="transparent"></ion-item>
+      
+              <ion-grid>
+                <ion-row *ngIf="checkPrice(list)">
+                  <ion-col>
+                    <h2>₹ {{list?.price}}</h2>
+                    <ion-label>{{list?.description}}</ion-label>
+                  
+                  </ion-col>
+                  <ion-col>
+                    <ion-item style="padding-top: 8px;" lines="none">
+                        <ion-label>{{list?.discount}}% | DISCOUNT</ion-label>
+                    </ion-item>
+                 
+                  </ion-col>
+                </ion-row>
+                <ion-row *ngIf="!checkPrice(list)">
+                  <ion-col>
+                    <h2>₹ 0</h2>
+                    <ion-label>{{list?.description}}</ion-label>
+                  
+                  </ion-col>
+                  <ion-col>
+                    <ion-item style="padding-top: 8px;" lines="none">
+                        <ion-label>Fully Discount</ion-label>
+                    </ion-item>
+                 
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <ion-button expand="full" (click)="premiumCourse(list)" color="yellow">Explore</ion-button>
+                    </ion-col>
+                    <ion-col>
+                        <ion-button *ngIf="checkPrice(list)" expand="full" (click)="buyVdo(list)" color="pinks">Buy Now</ion-button>
+                        <ion-button *ngIf="!checkPrice(list)" expand="full" (click)="fullDiscountVdo(list)" color="pinks">Buy Now</ion-button>
+                    </ion-col>
+                </ion-row>
+              </ion-grid>
+        </ion-card-header>
+      </ion-card> 
+      <!-- <img [src]="banner?.image"  /> -->
+    </ng-template>
+  </swiper>
+</ion-row>

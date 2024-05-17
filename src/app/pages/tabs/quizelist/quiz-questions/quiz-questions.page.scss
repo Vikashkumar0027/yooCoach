@@ -1,0 +1,200 @@
+.ion_img {
+    // height: 23%;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center
+    ion-item {
+        color: #fff;
+     padding: 15px 0 90px;
+        background: #087DC0;
+        // z-index: -1;
+        h3 {
+            font-size: 18px;
+        }
+    }
+}
+.backIcon{
+    font-size: 2rem;
+}
+
+.content {
+    // --background: #087DC0;
+    ion-img {
+        width: 100px;
+    }
+}
+
+.grid {
+    margin-top: -92px;
+    position: relative;
+    ion-card-content {
+        font-size: 18px;
+    }
+}
+
+.first {
+    margin-left: -13px;
+    font-size: 0.6rem;
+}
+
+.cartlebel {
+    margin-left: 27px;
+}
+
+.timer {
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    // margin-top: 0x;
+    font-size: 2rem;
+    margin-top: -76px !important;
+}
+
+// .timers {
+//     position: absolute;
+//     top: 31%;
+//     left: 39%;
+//     width: 29em;
+//     height: 3.5em;
+//     margin-top: -18em;
+//     margin-left: -15em;
+//     border: 1px solid #ccc;
+//     background-color: #39B2F8;
+//     display: block;
+//     margin-left: auto;
+//     margin-right: auto;
+//     width: 22%;
+//     z-index: 1;
+//     border-radius: 4px;
+// }
+.timers {
+    color: #000;
+    height: 3.5em;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    display: flex;
+    width: 28%;
+    z-index: 1;
+    border-radius: 4px;
+    justify-content: center;
+    position: absolute;
+    right: 18px;
+    top: 13px;
+    align-items: center;
+}
+
+.login-section {
+    height: 80%;
+    width: 100%;
+    max-width: 500px;
+    background: linear-gradient(0deg, rgba(253, 253, 253, 1), rgba(241, 241, 241, 1));
+    right: 0;
+    left: 0;
+    bottom: 0;
+    position: absolute;
+    margin: auto;
+}
+
+.cardboder {
+    // max-width: 800px;
+    // margin:  0 auto;
+    // padding: 0
+    background-color: transparent;
+
+    ion-item {
+        max-width: 800px;
+        margin: 10px auto;
+        border-radius: 9px;
+        border: 1px solid#3b3b3b;
+        height: auto;
+    }
+    ion-item:hover {
+        border: 1px solid#087DC0;
+    }
+}
+
+//   its for score card
+.contentScore {
+    --background: linear-gradient(0deg, rgba(253, 253, 253, 1), rgba(241, 241, 241, 1));
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.imgScore {
+    height: 50vh;
+    margin-top: -70px;
+    position: relative;
+    ion-label {
+        position: absolute;
+        top: 24%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        font-size: 10rm;
+    }
+}
+.card-box {
+    margin-top: -101px;
+}
+.scorecard {
+    // display: flex;
+    // flex-direction: column;
+    // width: 100%;
+    margin: 24px;
+    ion-icon {
+        font-size: 0.6rem;
+        margin-top: 9px;
+        position: absolute;
+        margin-left: -1.5em;
+    }
+    .paddings {
+        margin-left: 33px
+    }
+}
+
+.texts {
+    margin: 18px 26px;
+    letter-spacing: 0.03em;
+    color: #5A5A5A;
+    font-size: 14px;
+    line-height: 135.5%;
+}
+.minuts{
+    font-size: 10px;
+}
+.grade {
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    h2{
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 23px;
+    }
+}
+
+.cardboder ion-item ion-label {
+    // display: flex !important;
+    align-items: center;
+}
+
+.next{
+    --width: 60px;
+    --height: 60px;
+    // --border-radius: 50%;
+    --vertical-align: middle;
+    // --padding-start: 42px;
+    // --padding-end: 46px;
+    --padding-start: 42px;
+    --padding-end: 38px;
+}
+.nextSubmit{
+    --width: 60px;
+    --height: 60px;
+    // --border-radius: 50%;
+    --vertical-align: middle;
+    --padding-start: 14px;
+    --padding-end: 14px;
+}

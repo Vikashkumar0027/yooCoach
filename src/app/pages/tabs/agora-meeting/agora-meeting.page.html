@@ -1,0 +1,46 @@
+
+<ion-header mode="md" *ngIf="isROtate">
+  <ion-toolbar color="pinks">
+    <ion-title class="ion-no-padding">
+      <ion-label color="dark">Agora Meeting</ion-label>
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/dashboard"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+ 
+  <main>
+    <button (click)="join()" id="join-btn">Join Stream</button>
+    <div id="user-streams">
+
+    </div>
+
+    <div id="footer">
+        <div (click)="cam()" type="button" class="icon-wrapper" id="cameraDiv">
+            <img  class="control-icon" id="camera-btn" src="./assets/video.svg" />
+            <p>Cam</p>
+        </div>
+        <div class="icon-wrapper">
+            <img (click)="mic()" class="control-icon" id="mic-btn" src="./assets/microphone.svg" />
+             <p>Mic</p>
+        </div>
+        <div class="icon-wrapper">
+            <img (click)="leave()" class="control-icon" id="leave-btn" src="./assets/leave.svg" />
+            <p>Leave</p>
+        </div>
+        <div class="icon-wrapper">
+            <img (click)="rotateScreen()" class="control-icon" id="leave-btn" src="./assets/screenrotation.png" />
+            <p> Rotation</p>
+        </div>
+        <!-- <div class="icon-wrapper">
+            <img (click)="screenShared()" class="control-icon" id="screenshare-btn" src="./assets/screenshot.svg" />
+            <p>Screen Share</p>
+        </div> -->
+    </div>
+
+</main>
+</ion-content>

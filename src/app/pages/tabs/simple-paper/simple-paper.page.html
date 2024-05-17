@@ -1,0 +1,62 @@
+
+<ion-header mode="md">
+  <ion-toolbar color="pinks" class="ion-padding-top">
+    <ion-title class="ion-no-padding">
+      <ion-label color="dark">Sample Paper</ion-label>
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/dashboard"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+     <ion-button (click)="refress()"><ion-icon class="refress" name="refresh-outline"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content color="dashboard">
+
+  <!-- <app-empty-screen *ngIf="sampleListing.length <= 0" [model]="model"></app-empty-screen> -->
+  <app-empty-screen *ngIf="dataIs" [model]="model"></app-empty-screen>
+
+  <!-- <ion-item *ngFor="let list of sampleListing" color="white" detail="true" (click)="openPdf(list)">
+    <ion-label slot="start">
+      <h3>{{list.title}}</h3>
+    </ion-label>
+    <ion-label>Duration {{list.time_duration}} m</ion-label>
+  </ion-item> -->
+
+
+  <ion-card *ngFor="let list of sampleListing">
+    <ion-card-header>
+      <ion-item color="white" lines="none">
+        {{list.title}}
+        <ion-button slot="end" color="dark-orange" size="default" (click)="openPdf(list)">
+          view
+        </ion-button>
+      </ion-item>
+     
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-item lines="none">
+        <!-- <ion-button slot="start"> St </ion-button> | date : 'h:mm a' -->
+        <ion-label  >
+          <h4>Start time</h4> {{timeFuction(list?.starting_time) }}
+        </ion-label>
+        <ion-label>
+          <h4>Seating</h4> {{list?.exam_seating}}
+        </ion-label>
+        <!-- <ion-button slot="end"> End </ion-button> -->
+        <ion-label slot="end">
+          <h4>End time</h4>{{timeFuction(list?.time_duration)}}
+        </ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  
+
+  <!-- <ion-img src="https://docs-demo.ionic.io/assets/madison.jpg" alt="The Wisconsin State Capitol building in Madison, WI at night"></ion-img> -->
+
+</ion-content>

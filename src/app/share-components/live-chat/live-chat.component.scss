@@ -1,0 +1,27 @@
+ion-content{
+    --background: linear-gradient(0deg, rgba(253, 253, 253, 1), rgba(241, 241, 241, 1));
+}
+.bottom {
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    margin-left: 0;
+    background:#FFFFFF;
+    border-color: #403E39;
+    border-width: thin;
+    border-style: solid;
+    border-radius: 0;
+  }
+ 
+  ion-card{
+    float: left;
+    max-width: 80%;
+    min-width: 50%;
+  }
+  .right {
+    max-width: 80%;
+    min-width: 80%;
+    float:right;
+    background: #168DD1;
+    color: #fff;
+  }

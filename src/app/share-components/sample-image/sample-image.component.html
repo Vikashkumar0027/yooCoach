@@ -1,0 +1,43 @@
+<ion-content>
+  <!-- <ion-item color="transparent" lines="none" class="ion-no-padding config-modalbox">
+    
+    </ion-item> -->
+
+    <div id="outerContainer">
+      <ion-icon color="danger"  class="close-btn icon center-right" (click)="cancel()" name="close-circle-outline"></ion-icon>
+      </div>
+
+      
+      <!-- <ion-img [src]="src"></ion-img> -->
+           <div *ngIf="!samplePaper">
+             <app-pinch-zoom (events)="handlePinchZoomEvents($event)">
+               <img [src]="src" />
+               <!-- <div style="height:500px"> 
+               </div> -->
+             </app-pinch-zoom>
+         </div>
+
+         <div *ngIf="samplePaper"> 
+          <div style="width: 100%; overflow-x: scroll;">
+            <table style="width: 100px;">
+              <tr>
+                <td><div class="containers">
+          
+                  <img
+                    id="picture"
+                    [src]="src"
+                    alt="bmw picture"
+                    width="100%"
+                  />
+                </div>
+              </td>
+              </tr>
+          
+            </table>
+          </div>
+          
+        </div>
+    
+       
+      
+      </ion-content>

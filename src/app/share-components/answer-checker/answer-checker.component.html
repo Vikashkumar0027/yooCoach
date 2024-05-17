@@ -1,0 +1,60 @@
+<!-- <div id="outerContainer">
+  <ion-icon color="danger"  class="close-btn icon center-right" (click)="cancel()" name="close-circle-outline"></ion-icon>
+  </div> -->
+
+
+  <ion-content>
+    <div id="outerContainer">
+    <ion-icon color="danger"  class="close-btn icon center-right" (click)="cancel()" name="close-circle-outline"></ion-icon>
+
+    </div>
+    <ion-list lines="none" *ngFor="let lst of questions; let i=index">
+      <ion-item class="question">
+    <ion-label class="ion-text-wrap">
+     <h5> <b> <u>Question {{i+1}} :-</u></b></h5>
+    <h2 [innerHTML]="lst?.question"></h2>
+    </ion-label>
+     
+      </ion-item>
+      <ion-radio-group [value]='values'>
+          <div *ngFor="let option of lst?.options" >
+            <p *ngIf="option?.selected == 'show'">You have chosen <span *ngIf="option?.selected == 'show' && option?.correct">and it is absolutely right answer. </span></p>
+          <ion-item lines="none" 
+          [class]="color(option)" *ngIf="option?.selected == 'show'" >
+            <ion-label [innerHTML]="option?.option"></ion-label>
+            <ion-radio slot="end" disabled="true" [value]="option?.selected"></ion-radio>
+          </ion-item>
+
+          <p *ngIf="option?.correct && option?.selected != 'show'">Right Answer is</p>
+          <ion-item lines="none" 
+          [class]="color(option)" *ngIf="option?.correct && option?.selected != 'show'" >
+            <ion-label [innerHTML]="option?.option"></ion-label>
+            <ion-radio slot="end" disabled="true" [value]="option?.selected"></ion-radio>
+          </ion-item>
+        </div>
+        </ion-radio-group>
+    </ion-list>
+  
+    
+  
+    <!-- <ion-item>
+      {{ question }}
+    </ion-item>
+  
+    <ion-item *ngFor="let option of options">
+      <ion-label [color]="option === correctOption ? 'success' : 'danger'">{{ option }}</ion-label>
+    </ion-item>
+  
+    <ion-item *ngIf="selectedOption && isCorrect()">
+      <ion-label color="success">Correct!</ion-label>
+    </ion-item>
+    <ion-item *ngIf="selectedOption && !isCorrect()">
+      <ion-label color="danger">Incorrect. Try again.</ion-label>
+    </ion-item> -->
+  </ion-content>
+  
+  
+  
+  
+  
+  

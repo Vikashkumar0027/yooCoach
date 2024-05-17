@@ -1,0 +1,19 @@
+<div class="box">
+ 
+  <ion-item lines="none" class="ion-no-padding">
+      <ion-label>Yearly Attendance</ion-label>
+      <ion-label slot="end"> {{totalAttendance}}</ion-label>
+  </ion-item>
+  <ion-item lines="none" class="ion-no-padding">
+    <ion-label slot="start"><b><u>This Month</u></b></ion-label>
+  </ion-item>
+  <ion-item lines="none" class="ion-no-padding">
+      <ion-label slot="start" >Present</ion-label>
+      <ion-label slot="end" > {{attendaceData?.present}}</ion-label>
+  </ion-item>
+  <ion-item lines="none" class="ion-no-padding">
+      <ion-label slot="start" >Absent</ion-label>
+      <ion-label *ngFor="let list of attendaceData?.absent" slot="end" > {{list | date: 'dd MMM yy'}}</ion-label>
+  </ion-item>
+
+</div>

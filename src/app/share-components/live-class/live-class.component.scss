@@ -1,0 +1,108 @@
+// ion-icon {
+//     font-size: 15rem;
+// }
+
+.gridE {
+    // height: 54vh;
+    height: 33vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    ion-icon {
+        font-size: 2rem !important;
+        color: #fff;
+        width: 40px;
+        height: 40px;
+        background-color: #F85A5A;
+        border-radius: 50%;
+        padding: 21px;
+        border: 10px solid #f9b1b1;
+        margin-bottom: 7px;
+    }
+    h1 {
+        font-size: 23px;
+        color: rgb(10, 10, 10);
+        font-weight: 500;
+    }
+    p {
+        font-size: 15px;
+        color: rgb(11, 11, 11);
+        text-align: center;
+    }
+}
+
+// .button{
+// margin-top: -37px;
+// }
+
+.close-btn {
+    font-size: 2.5rem !IMPORTANT;
+    // color: #fff;
+    position: absolute;
+    left: 24px;
+    top: 6px;
+}
+.set-live-class {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 13px;
+}
+.ion-activatable {
+    height: 44px;
+    font-size: 13px;
+}
+.black {
+    color: #000;
+}
+
+.zoomMeeting{
+    --border-radius: 18px;
+       .my-ion-card-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          ion-img{
+              height: 42px !important;
+              width: 42px !important;
+          }
+        }
+      
+        .iconImg{
+          display: flex;
+          align-items: center;
+          padding-bottom: 10px;
+          padding-left: 16px;
+          // justify-content: space-between;
+          ion-img{
+              height: 28px !important;
+              width: 30px !important;
+          }
+        }
+        .iconImg2{
+          display: flex;
+          align-items: center;
+          padding-bottom: 10px;
+          padding-left: 110px;
+          // justify-content: space-between;
+          ion-img{
+              height: 28px !important;
+              width: 30px !important;
+          }
+        }
+      
+        .joinNow{
+          ion-img{
+              width: 80.744px;
+              height: 82.186px;
+          }
+          ion-button{
+              --border-radius: 18px;
+               padding: 21px 0px 0 !important;
+              ion-img{
+                  width: 26.744px;
+                  height: 23.186px;
+              }
+          }
+        }
+   }

@@ -1,0 +1,8 @@
+<ion-row mode="md">
+  <swiper #swiperComponent [config]="bannerConfigs" class="banners">
+    <ng-template swiperSlide *ngFor="let banner of bannerApiDAta">
+      <!-- <img src="assets/img/Rectangle15.png"  /> -->
+      <img [src]="banner?.banner_image" (click)="bannerData(banner)" />
+    </ng-template>
+  </swiper>
+</ion-row>

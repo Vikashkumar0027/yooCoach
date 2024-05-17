@@ -1,0 +1,117 @@
+<ion-grid *ngIf="vdoListing.length == 0" mode="md" class="gridE">
+  <ion-row >
+    <!-- <ion-icon color="primary" class="close-btn" (click)="cancel()" name="Home"></ion-icon> -->
+    <ion-col class="ion-text-center">
+      <ion-icon name="videocam-outline"></ion-icon>
+    </ion-col>
+  </ion-row>
+  <!-- *ngIf="vdoListing.length == 0" -->
+  <ion-row>
+    <ion-col class="ion-text-center">
+      <ion-label>
+        <h1>Join Live Class </h1>
+      </ion-label>
+
+      <ion-text color="darkblue" > No live class video </ion-text>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<!-- <ion-item-group>
+  <form [formGroup]="form">
+      <ion-item color="white" lines="none"> 
+          <ion-label position="floating">User Id / Name</ion-label>
+          <ion-input type="text" formControlName="userName"></ion-input>
+      </ion-item>
+      <ion-text class="error" color="danger" *ngIf="!form.get('userName').valid && form.get('userName').touched">
+
+          <ion-text class="ion-padding-bottom" *ngIf="form.get('userName').hasError('required')">Please Enter User Id
+          </ion-text>
+      </ion-text>
+
+      <ion-item color="white" lines="none">
+        <ion-label position="floating">Meeting Number</ion-label>
+        <ion-input type="number" formControlName="meetingNumber"></ion-input>
+    </ion-item>
+    <ion-text class="error" color="danger" *ngIf="!form.get('meetingNumber').valid && form.get('meetingNumber').touched">
+  
+        <ion-text class="ion-padding-bottom" *ngIf="form.get('meetingNumber').hasError('required')">Please Enter Metting number
+        </ion-text>
+  
+    </ion-text>
+
+      <ion-item color="white" lines="none">
+        <ion-label position="floating">Pass Code</ion-label>
+        <ion-input type="text" formControlName="passWord"></ion-input>
+    </ion-item>
+    <ion-text class="error" color="danger" *ngIf="!form.get('passWord').valid && form.get('passWord').touched">
+
+        <ion-text class="ion-padding-bottom" *ngIf="form.get('passWord').hasError('required')">Please EnterPassword
+        </ion-text>
+    </ion-text>
+
+   
+     
+  <div class="ion-padding-top ion-margin-top">
+    <ion-button expand="block" [disabled]="!form?.valid" color="dark-orange" (click)="submit()">Join Now</ion-button>
+  </div>
+      <ion-button expand="full" [disabled]="!form?.valid" (click)="submit()">connect Zoom!</ion-button>
+
+  </form>
+</ion-item-group> -->
+
+<!-- <div class="button">
+  <ion-button expand="block" color="dark-orange" (click)="submit()">Join Now</ion-button>
+</div> -->
+
+<!-- <ion-item *ngFor="let list of vdoListing " color="white">
+  {{list?.time}}
+  <ion-label> {{list?.title}}</ion-label>
+
+  <ion-button slot="end" color="dark-orange" size="default" (click)="join(list)">
+    Join Now
+  </ion-button>
+</ion-item> -->
+
+<!-- <ion-card *ngFor="let list of vdoListing ">
+  <ion-card-header class="set-live-class">
+    <ion-item color="white" lines="none">
+      <span>{{list?.title}}</span>
+      <ion-button slot="end" color="dark-orange" size="default" (click)="join(list)">
+        Join Now
+      </ion-button>
+    </ion-item>
+
+  </ion-card-header>
+
+  <ion-card-content class="black">
+    Time: {{timeFuction(list?.time)}}
+  </ion-card-content>
+</ion-card> -->
+
+
+<ion-label *ngIf="vdoListing.length != 0" style="padding-left: 15px; font-weight:bold;" >Join Live Class</ion-label>
+<ion-card *ngFor="let livevdoData of vdoListing " class="zoomMeeting" color="darkblue" >
+  <ion-card-header class="my-ion-card-header">
+           <ion-card-title>Topic: {{livevdoData?.title}}</ion-card-title>
+          <ion-img src="assets/img/liveicon.png"> </ion-img>
+  </ion-card-header>
+  <div class="iconImg">
+      <ion-img src="assets/img/calender.png"> </ion-img> &nbsp;&nbsp;{{livevdoData?.date | date: "dd MMM yyyy"}}, {{timeFuction(livevdoData?.time)}}
+  </div> 
+
+  <div *ngFor="let batch of livevdoData?.batch_id; let i =index"    [ngClass]="i==0 ? 'iconImg' : 'iconImg2'">
+      <ion-img *ngIf="i == 0" src="assets/img/profile.png"> </ion-img>&nbsp;&nbsp;<div *ngIf="i == 0" >For Batch </div>&nbsp; {{batchName(batch)}}
+  </div>
+
+<ion-item class="joinNow" color="transparent" lines="none">
+<ion-button color="pinks" slot="start" (click)="join(livevdoData)">Join Now &nbsp;<ion-img src="assets/img/farrow.png"> </ion-img></ion-button>
+<ion-img slot="end" src="assets/img/admin.png"> </ion-img>
+</ion-item>
+
+</ion-card>

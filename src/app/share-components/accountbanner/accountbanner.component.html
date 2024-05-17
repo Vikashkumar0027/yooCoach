@@ -1,0 +1,37 @@
+<ion-radio-group  (ionChange)="checkValue($event)"   [(ngModel)]="selectedValue">
+  <ion-row class="swiperLeft" mode="md">
+    <swiper [config]="bannerConfig" class="banners acount-banner">
+      <ng-template swiperSlide *ngFor="let data of bannerData">
+        <ion-item lines="none" class="ion-no-padding ion-no-margin" color="transparent"
+       >
+       <ion-radio [value]="data?._id " class="border-r-0" checked="checked"> </ion-radio>
+          <ion-label>{{data?.name}}</ion-label>
+        </ion-item>
+      </ng-template>
+      <!-- <ng-template swiperSlide >
+        <ion-item lines="none" class="ion-no-padding ion-no-margin" color="transparent">
+          <ion-label>Payment</ion-label>
+          <ion-radio value="Payment" checked="checked"> </ion-radio>
+        </ion-item>
+      </ng-template>
+      <ng-template swiperSlide >
+        <ion-item lines="none" class="ion-no-padding ion-no-margin" color="transparent">
+          <ion-label>Attendance</ion-label>
+          <ion-radio value="Attendance" checked="checked"> </ion-radio>
+        </ion-item>
+      </ng-template>
+      <ng-template swiperSlide >
+        <ion-item lines="none" class="ion-no-padding ion-no-margin" color="transparent">
+          <ion-label>Purchase</ion-label>
+          <ion-radio value="Purchase" checked="checked"> </ion-radio>
+        </ion-item>
+      </ng-template>
+      <ng-template swiperSlide >
+        <ion-item lines="none" class="ion-no-padding ion-no-margin" color="transparent">
+          <ion-label>Quiz</ion-label>
+          <ion-radio value="Quiz" checked="checked"> </ion-radio>
+        </ion-item>
+      </ng-template> -->
+    </swiper>
+  </ion-row>
+</ion-radio-group>

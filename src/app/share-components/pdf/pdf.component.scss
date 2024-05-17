@@ -1,0 +1,35 @@
+.config-modalbox {
+    margin-top: 6px;
+    // background-color: #fff;
+//     margin-left: 15px;
+//     margin-right: 15px;
+//     border-radius: 5px;
+}
+.icon{
+    // justify-content: flex-end;
+    font-size: 2rem;
+}
+ion-content {
+    --background: #F2F6F9;
+}
+
+
+#outerContainer { position: relative }
+.center-right{
+    position: absolute;
+    top: 4%;
+    right: 4px;
+    transform: translateY(-50%);
+    z-index: 9;
+}
+
+.fix-btn{
+    position: fixed;
+    bottom: -11px;
+    right: 149px;
+    font-size: 3rem;
+}
+
+.close-btn{
+    // background-color: red;
+}

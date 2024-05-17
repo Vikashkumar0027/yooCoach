@@ -1,0 +1,36 @@
+.box {
+    padding: 13px !important;
+    background-color: #fff !important;
+    box-shadow: 0 0px 5px 0 rgb(0 0 0);
+    border-radius: 9px;
+    margin-top: 21px;
+    border: 1px solid #E9E9E9;
+    box-shadow: 0px 0px 4px rgb(0 0 0 / 15%);
+    border-radius: 5px;
+}
+
+// .box_lable {
+//     font-size: 14px;
+//     color: #5F5F5F;
+// }
+
+.ion_padding_top {
+    padding: 16px 0 0 0;
+    font-size: 14px;
+}
+
+.ion_padding_top p {
+    margin: 12px 0 0 0;
+    font-size: 16px;
+    color: #979797;
+}
+
+.cas_upi_amt {
+    margin: 10px 0 0 0;
+    font-size: 18px !important;
+    font-weight: 600;
+    text-align: end;
+}
+ ion-item{
+    margin-bottom: -15px;
+ }

@@ -1,0 +1,267 @@
+<ion-header [translucent]="true" *ngIf="!isLoadingLoader && internet">
+    <ion-toolbar color="pinks" mode="md">
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <ion-buttons>
+                        <ion-menu-button>
+                            <!-- <ion-icon  name="notifications-outline"></ion-icon> -->
+                            <ion-icon class="menuicon" name="menu-outline"></ion-icon>
+                            <!-- <img src="assets/img/menu-icon.png"> -->
+                        </ion-menu-button>
+                    </ion-buttons>
+                </ion-col>
+                <ion-col>
+                    <ion-item lines="none" color="transparent">
+                        <ion-icon slot="end" name="refresh-outline" type="ion-button" (click)="refressDashBoard()"></ion-icon>
+                        <ion-icon slot="end" name="notifications-outline" (click)="notification(image.notification_count)"></ion-icon>
+                        <ion-badge *ngIf="image?.notification_count !== 0" class="count-cart" slot="end" color="success">{{image?.notification_count}}</ion-badge>
+                       
+                        
+
+                        <!-- <ion-avatar *ngIf="image?.student_photo" slot="end" [routerLink]="['/tabs/account']">
+                            <img [src]="image?.student_photo">
+                        </ion-avatar> -->
+
+                            <!-- <ion-icon *ngIf="!image?.student_photo" slot="end" class="user"  name="person-circle-outline" [routerLink]="['/tabs/account']" ></ion-icon> -->
+                     
+
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <!-- <ion-label class="search-bar" [routerLink]="['/','tabs','search']">
+                Search for class & Subject...
+                <ion-icon class="search_arrow" name="search-outline"></ion-icon>
+            </ion-label> -->
+        </ion-grid>
+
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+    <app-skeleton *ngIf="isLoadingLoader"></app-skeleton>
+
+    <app-empty-screen *ngIf="!internet" (checknet)="tryNet()"></app-empty-screen>
+    <app-live-class *ngIf="liveClass" (zoomMeeting)="zoom()" [userDetails]="image"></app-live-class>
+
+    <div class="ion-no-padding" *ngIf="!liveClass && internet">
+        <ion-grid class="item-listbox">
+            <ion-row>
+                <ion-col class="ion-no-padding">
+                    <app-banner [bannerApiDAta]="bannerImage"> </app-banner>
+                </ion-col>
+            </ion-row>
+
+            <ion-row *ngIf="news.length > 0">
+                <ion-col size="0.8" class="vert">
+                    <ion-text>News</ion-text>
+                </ion-col>
+                <ion-col size="11.2" class="news">
+                    <!-- [routerLink]="['/','tabs','search']"  bgcolor="pink" -->
+                    <!-- <ion-label > -->
+                    <marquee width="100%" behavior="scroll">
+                        {{news[0]?.notice}}
+                    </marquee>
+                    <!-- {{news[0]?.notice}} -->
+                    <!-- </ion-label> -->
+                </ion-col>
+            </ion-row>
+
+
+<ion-row *ngIf="!liveVideo">
+            <ion-col class="ion-no-padding">
+                <ion-item color="dashboard" lines="none">
+                    <ion-label class="headerLabel">
+                        <h2><strong>Live Class </strong> </h2>
+                    </ion-label>
+                </ion-item>
+                <ion-item lines="none" class="noLiveClass">
+                    <ion-label class="ion-text-center">No Live Class</ion-label>
+                    
+                </ion-item>
+            </ion-col>
+        </ion-row>
+
+<!-- Zoom meeting connect -->
+    <ion-card *ngIf="liveVideo" class="zoomMeeting" color="darkblue" >
+        <ion-card-header class="my-ion-card-header">
+                 <ion-card-title>Topic: {{livevdoData?.title}}</ion-card-title>
+                <ion-img src="assets/img/liveicon.png"> </ion-img>
+        </ion-card-header>
+        <div class="iconImg">
+            <ion-img src="assets/img/calender.png"> </ion-img> &nbsp;&nbsp;{{livevdoData?.date | date: "dd MMM yyyy"}}, {{livevdoData?.time }}
+        </div> 
+      
+        <div *ngFor="let batch of livevdoData?.batch_id; let i =index"    [ngClass]="i==0 ? 'iconImg' : 'iconImg2'">
+            <ion-img *ngIf="i == 0" src="assets/img/profile.png"> </ion-img>&nbsp;&nbsp;<div *ngIf="i == 0" >For Batch </div>&nbsp; {{batchName(batch)}}
+        </div>
+
+<ion-item class="joinNow" color="transparent" lines="none">
+    <ion-button color="pinks" slot="start" [routerLink]="['/tabs/dashboard/liveClasses']">Join Now &nbsp;<ion-img src="assets/img/farrow.png"> </ion-img></ion-button>
+    <ion-img slot="end" src="assets/img/admin.png"> </ion-img>
+</ion-item>
+
+      </ion-card>
+<!-- Agora meeting connect -->
+    <!-- <ion-card *ngIf="isagora" class="zoomMeeting" color="darkblue" >
+        <ion-card-header class="my-ion-card-header">
+                 <ion-card-title>Topic: {{agoraLiveData[0]?.title}}</ion-card-title>
+                <ion-img src="assets/img/liveicon.png"> </ion-img>
+        </ion-card-header>
+        <div class="iconImg">
+            <ion-img src="assets/img/calender.png"> </ion-img> &nbsp;&nbsp;{{agoraLiveData[0]?.date | date: "dd MMM yyyy"}}, {{agoraLiveData[0]?.time }}
+        </div> 
+      
+        <div *ngFor="let batch of agoraLiveData[0]?.batch_id; let i =index"    [ngClass]="i==0 ? 'iconImg' : 'iconImg2'">
+            <ion-img *ngIf="i == 0" src="assets/img/profile.png"> </ion-img>&nbsp;&nbsp;<div *ngIf="i == 0" >For Batch </div>&nbsp; {{batchName(batch)}}
+        </div>
+
+<ion-item class="joinNow" color="transparent" lines="none">
+    <ion-button color="pinks" slot="start" [routerLink]="['/tabs/agora-meeting']">Join Now &nbsp;<ion-img src="assets/img/farrow.png"> </ion-img></ion-button>
+    <ion-img slot="end" src="assets/img/admin.png"> </ion-img>
+</ion-item>
+
+      </ion-card> -->
+<!-- End Agora -->
+            <!-- <ion-row class="join-chat">
+                <ion-item *ngIf="liveVideo" class="join-chat-class ion-text-center ion-no-margin ion-no-padding" color="primary">
+                    <ion-label class="ion-no-padding" [routerLink]="['/tabs/dashboard/liveClasses']">
+                        <h3> Join the live video class </h3>
+                        <marquee width="100%" behavior="scroll">
+                            <ion-text color="warning">{{livevdoData.title}}</ion-text>
+                        </marquee>
+                       
+                    </ion-label>
+                </ion-item>
+
+            </ion-row> -->
+
+        </ion-grid>
+
+        <ion-list lines="none" class="secondgrid swiper_siler ion-padding-top" color="dashboard">
+            <ion-item color="dashboard">
+                <ion-label class="headerLabel">
+                    <h2><strong>Latest Videos </strong> </h2>
+                    <p>Watch our recently uploaded videos</p>
+                    <!-- <p>Read from our latest online video class</p> -->
+                </ion-label>
+            </ion-item>
+            <app-vdobanner (openYoutube)="vdoOpen($event)"></app-vdobanner>
+        </ion-list>
+   
+
+<!-- Recommended Course -->
+    <ion-grid>
+        <ion-row *ngIf="!isPremiumCourse">
+            <ion-col class="ion-no-padding">
+                <ion-item color="dashboard" lines="none">
+                    <ion-label class="headerLabel">
+                        <h2><strong>Read by Subject </strong> </h2>
+                        <p>Read from our latest lectures done in class.</p>
+                    </ion-label>
+                </ion-item>
+                <app-recommended-course [preCourseList]="preCourseLists"> </app-recommended-course>
+                <!-- <app-recommended-course (ispremiumCourse)="premiumCourseAvilable($event)"> </app-recommended-course> -->
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col class="ion-no-padding">
+                <ion-item *ngIf="recommendedCourse.length >=1" color="dashboard" lines="none">
+                    <ion-label class="headerLabel">
+                      <h2><strong>Paid Recommended Course </strong></h2>
+                    </ion-label>
+                    <ion-button [routerLink]="['/tabs/recmnd-view-couse']" class="viewall" color="yellow">View All</ion-button>
+                </ion-item>
+
+                <app-recmnd-course-banner [recommendedCourse]="recommendedCourse" (buypreCourse)="buyVdo($event)" (fullDiscount)="fullDiscountVdo($event)"></app-recmnd-course-banner>
+
+                <!-- <ion-card color="light_yellow" class="reccomendedcard" *ngFor="let list of recommendedCourse">
+                    <ion-card-title>{{list?.title}}</ion-card-title>
+                    <img alt="Silhouette of mountains" [src]="list.image" />
+                    <ion-card-header class="ion-no-padding">
+
+                          <div class="main">
+
+                            <div class="shadow-box" *ngFor="let lst of list?.sub_title">
+                              <ion-icon color="lightpink" name="radio-button-on-outline"></ion-icon>
+                              <p>{{lst}}</p>
+                            </div>
+                            </div>
+                        
+                          <ion-item class="line ion-no-margin" color="transparent"></ion-item>
+
+                          <ion-grid>
+                            <ion-row *ngIf="checkPrice(list)">
+                              <ion-col>
+                                <h2>₹ {{list?.price}}</h2>
+                                <ion-label>{{list?.description}}</ion-label>
+                              
+                              </ion-col>
+                              <ion-col>
+                                <ion-item style="padding-top: 8px;" lines="none">
+                                    <ion-label>{{list?.discount}}% | DISCOUNT</ion-label>
+                                </ion-item>
+                             
+                              </ion-col>
+                            </ion-row>
+                            <ion-row *ngIf="!checkPrice(list)">
+                              <ion-col>
+                                <h2>₹ 0</h2>
+                                <ion-label>{{list?.description}}</ion-label>
+                              
+                              </ion-col>
+                              <ion-col>
+                                <ion-item style="padding-top: 8px;" lines="none">
+                                    <ion-label>Fully Discount</ion-label>
+                                </ion-item>
+                             
+                              </ion-col>
+                            </ion-row>
+                            <ion-row>
+                                <ion-col>
+                                    <ion-button expand="full" (click)="premiumCourse(list)" color="darkyellow">Explore</ion-button>
+                                </ion-col>
+                                <ion-col>
+                                    <ion-button *ngIf="checkPrice(list)" expand="full" (click)="buyVdo(list)" color="dark-orange">Buy Now</ion-button>
+                                    <ion-button *ngIf="!checkPrice(list)" expand="full" (click)="fullDiscountVdo(list)" color="dark-orange">Buy Now</ion-button>
+                                </ion-col>
+                            </ion-row>
+                          </ion-grid>
+                    </ion-card-header>
+                  </ion-card> -->
+
+               
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</div>
+
+<!-- freeAccess do hide when login from mobile number -->
+    <div class="subjectselect ion-padding" *ngIf="!liveClass && internet && !freeAccess">
+        <ion-item color="white" lines="none">
+            <ion-label class="headerLabel">
+                <h2><strong> Select by Subject </strong> </h2>
+                <p>Read PDF & video by Chapters and Topics</p>
+            </ion-label>
+        </ion-item>
+        <!-- </ion-list> -->
+
+        <ion-grid>
+            <ion-row>
+                <ion-col size="4" class="checkbox-item ion-no-margin ion-no-padding" *ngFor="let entry of form">
+                    <ion-card-content class="ion-no-padding card-content-md">
+                        <ion-label type="ion-button" (click)="subjectPdfCource(entry?.name)">
+                            <img *ngIf="!entry?.image" src="assets/img/common.jpg"> 
+                            <img *ngIf="entry?.image" [src]="entry?.image"> {{entry?.name}}
+                        </ion-label>
+                    </ion-card-content>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+    </div>
+
+ 
+</ion-content>

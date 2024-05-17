@@ -1,0 +1,32 @@
+<ion-header>
+    <ion-toolbar color="pinks">
+        <ion-buttons class="courses-panel">
+            <ion-menu-button>
+                <ion-icon class="menuicon" name="menu-outline"></ion-icon> 
+            </ion-menu-button> <span>Quiz</span>
+        </ion-buttons>
+        <!-- <ion-title>Courses</ion-title> -->
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <app-empty-screen *ngIf="dataIs" [model]="model"></app-empty-screen>
+    <div class="checkBox">
+        <h2 class="h2_heading ion-padding-start" *ngIf="subjectLists.length > 0">Select your subject</h2>
+        <ion-grid>
+            <ion-row>
+                <ion-col size="6" class="checkbox-item ion-no-margin ion-no-padding" *ngFor="let entry of subjectLists">
+                    <ion-card-content class="ion-no-padding card-content-md card_content_md">
+                        <ion-label >
+                            <img [src]="entry.image"> {{entry.subject_name}}
+                        </ion-label>
+                        <!-- <ion-checkbox  (ionChange)="selectMember($event)"  [(ngModel)]="entry.isChecked"></ion-checkbox> -->
+                        <ion-checkbox (click)="selectMember(entry)" [(ngModel)]="entry.isChecked"></ion-checkbox>
+
+                    </ion-card-content>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+    </div>
+</ion-content>

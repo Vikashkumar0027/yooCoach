@@ -1,0 +1,16 @@
+// home.page.scss
+@import '~swiper/scss';
+@import '~@ionic/angular/css/ionic-swiper';
+// slides.component.css
+@import 'swiper/css';
+@import '@ionic/angular/css/ionic-swiper';
+ion-row {
+    .banners {
+        img {
+            width: 100%;
+            height: 189px;
+            border-radius: 3px;
+            object-fit: cover;
+        }
+    }
+}

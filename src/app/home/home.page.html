@@ -1,0 +1,187 @@
+<!-- <ion-content *ngIf="error" mode="md">
+
+    <p class="error">{{error | json}}</p>
+</ion-content> -->
+<!-- *ngIf="!error" -->
+<ion-content mode="md">
+
+    <div class="ion_img">
+        <ion-img src="assets/img/App Icon.png"></ion-img>
+    </div>
+
+
+    <ion-card color="pinks">
+        <ion-card-header>
+          <ion-card-title>For Institute Student </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+
+            <form #f1="ngForm" (ngSubmit)="onSubmit(f1)">
+                <div class="login-form ">
+                    <div class="ion-no-margin">
+                        <ion-item color="transparent" lines="none">
+                            <ion-icon class="key-icon" name="mail" slot="start" color="primary"></ion-icon>
+                            <ion-input class="ion-border" type="email" name="email" ngModel
+                                #emailCtrl="ngModel" placeholder="Email" required>
+                            </ion-input>
+                        </ion-item>
+                       
+                        <ion-grid>
+                            <ion-row>
+                                <ion-col size="2"></ion-col>
+                                <ion-col size="10">
+                                    <div class="msg-paddings">
+                                        <ion-text *ngIf="!emailCtrl.valid && emailCtrl.touched">
+                                            <ion-label class="errorMsg">*Please enter a valid email address</ion-label>
+                                        </ion-text>
+                                    </div>
+                                </ion-col>
+                            </ion-row>
+                        </ion-grid>
+    
+                    </div>
+    
+                    <div class="ion-no-margin">
+                        <ion-item color="transparent" lines="none">
+                            <ion-icon class="key-icon" name="key" slot="start" color="primary"></ion-icon>
+                            <ion-icon class="view-icon" color="primary" slot="end" (click)="changeType()"
+                                [name]="type ? 'eye-outline' : 'eye-off-outline'"></ion-icon>
+                            <ion-input class="ion-border ion-border-password ion-margin-bottom"
+                                [type]="type ? 'password' : 'text'" name="password" ngModel #passwordCtrl="ngModel"
+                                placeholder="password" required minlength="6">
+                            </ion-input>
+                        </ion-item>
+                      
+                        <ion-grid>
+                            <ion-row>
+                                <ion-col size="2"></ion-col>
+                                <ion-col size="10">
+                                    <div class="msg-paddings">
+                                        <ion-text *ngIf="!passwordCtrl.valid && passwordCtrl.touched">
+                                            <ion-label class="errorMsg">*Password must be of minimum 6 charactor long.</ion-label>
+                                        </ion-text>
+                                    </div>
+                                </ion-col>
+                            </ion-row>
+                        </ion-grid>
+                    </div>
+    
+    
+                </div>
+                <div class="action-button1">
+                    <ion-button expand="block" class="action_lg_btn" color="yellow" [disabled]="!f1.valid"
+                        type="submit">LOGIN</ion-button>
+                </div>
+            </form>
+
+            <ion-text color="primary" class="ion-text-center" routerLink="/home/signup">
+                <!-- class="marginTop" -->
+                <p >Don't have an account?
+                  <b>Sign Up Here</b>
+                </p>
+              </ion-text> 
+             
+        </ion-card-content>
+      </ion-card>
+
+
+      <ion-text color="primary" class="ion-text-center otherStudent">
+        <!-- class="marginTop" -->
+        <h4><b>If you are not a student of this Institute</b>
+        </h4>
+      </ion-text> 
+
+   
+        <form [formGroup]="form" (submit)="onSubmitNewUser()">
+            <!-- <div class="ion-margin-vertical"> -->
+            <ion-item color="transparent" lines="none">
+                <ion-input class="ion-border" type="tel" minlength="10" maxlength="10" formControlName="contctnmbr" placeholder="Enter your phone number" ></ion-input>
+            </ion-item>
+
+            <ion-text class="validationMsg" *ngIf="!form.get('contctnmbr').valid && form.get('contctnmbr').touched">
+
+                <ion-text class="ion-padding-bottom errorMsg" *ngIf="form.get('contctnmbr').hasError('required')">Please Enter Mobile number
+                </ion-text>
+
+                <ion-text class="errorMsg" *ngIf="!form.get('contctnmbr').hasError('required') && form.get('contctnmbr').hasError('minlength')">Please Enter 10 Digit Mobile number</ion-text>
+            </ion-text>
+
+            <div class="mobile">
+                <ion-button expand="block" class="action_lg_btn" color="pinks" type="submit">Login as guest
+                </ion-button>
+            </div>
+            <!-- <ion-button color="primary">Login as guest</ion-button> -->
+            </form>
+
+
+    <!-- <div class="login-section ion-padding">
+        <div class="heading">
+            <h1>Login for student</h1>
+
+        </div>
+        
+        <form #f1="ngForm" (ngSubmit)="onSubmit(f1)">
+            <div class="login-form ">
+                <div class="ion-margin-bottom">
+                    <ion-item color="white" lines="none">
+                        <ion-icon class="key-icon" name="mail" slot="start" color="primary"></ion-icon>
+                        <ion-input class="ion-border" type="email" name="email" ngModel
+                            #emailCtrl="ngModel" placeholder="Email" required>
+                        </ion-input>
+                    </ion-item>
+                   
+                    <ion-grid>
+                        <ion-row>
+                            <ion-col size="2"></ion-col>
+                            <ion-col size="10">
+                                <div class="msg-paddings">
+                                    <ion-text *ngIf="!emailCtrl.valid && emailCtrl.touched">
+                                        <ion-label class="errorMsg">*Please enter a valid email address</ion-label>
+                                    </ion-text>
+                                </div>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+
+                </div>
+
+                <div class="ion-margin-bottom">
+                    <ion-item color="white" lines="none">
+                        <ion-icon class="key-icon" name="key" slot="start" color="primary"></ion-icon>
+                        <ion-icon class="view-icon" color="primary" slot="end" (click)="changeType()"
+                            [name]="type ? 'eye-outline' : 'eye-off-outline'"></ion-icon>
+                        <ion-input class="ion-border ion-border-password ion-margin-bottom"
+                            [type]="type ? 'password' : 'text'" name="password" ngModel #passwordCtrl="ngModel"
+                            placeholder="password" required minlength="3">
+                        </ion-input>
+                    </ion-item>
+                  
+                    <ion-grid>
+                        <ion-row>
+                            <ion-col size="2"></ion-col>
+                            <ion-col size="10">
+                                <div class="msg-paddings">
+                                    <ion-text *ngIf="!passwordCtrl.valid && passwordCtrl.touched">
+                                        <ion-label class="errorMsg">*Password must be of minimum 3 charactor long.</ion-label>
+                                    </ion-text>
+                                </div>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                </div>
+
+
+            </div>
+            <div class="action-button">
+                <ion-button expand="block" class="action_lg_btn" color="dark-orange" [disabled]="!f1.valid"
+                    type="submit">LOGIN</ion-button>
+            </div>
+        </form>
+
+        <ion-text color="primary" class="ion-text-center" routerLink="/home/signup">
+            <p class="marginTop">Don't have an account?
+              <b>Sign Up</b>
+            </p>
+          </ion-text>
+    </div> -->
+</ion-content>
