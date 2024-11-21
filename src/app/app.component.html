@@ -4,9 +4,9 @@
         <ion-split-pane contentId="main-content" color="primary">
             <ion-menu *ngIf="userDetails?.name" contentId="main-content" type="overlay" color="primary" >
                 <ion-header>
-                    <ion-toolbar color="pinks">
+                    <ion-toolbar color="darkblue">
                         <ion-title>
-                            <ion-item color="pinks">
+                            <ion-item color="darkblue">
                                 <ion-label>{{userDetails?.name}}
                                     <p>+91 {{userDetails?.mobile_number}}</p>
                                 </ion-label>
@@ -15,11 +15,11 @@
                         </ion-title>
                     </ion-toolbar>
                 </ion-header>
-                <!-- siderbarcontent -->
-                <ion-content color="pinks">
+    
+                <ion-content color="siderbarcontent">
                     <ion-list id="inbox-list" lines="none" class="ion-no-padding ion-no-margin">
                         <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-                            <ion-item routerDirection="root" lines="none" [routerLink]="[p.url]" detail="false" routerLinkActive="selected" color="pinks">
+                            <ion-item routerDirection="root" lines="none" [routerLink]="[p.url]" detail="false" routerLinkActive="selected" color="siderbarcontent">
                                 <ion-icon slot="start" [ios]="p?.icon + '-outline'" [md]="p?.icon + '-sharp'"></ion-icon>
                                 <ion-label>{{ p?.title }}</ion-label>
                             </ion-item>
@@ -31,7 +31,7 @@
   <!-- LogOut Fuctionality -->
 
                 <ion-footer class="footer">
-                    <ion-item routerDirection="root" lines="none"  detail="false" routerLinkActive="selected" color="pinks" (click)="confirmLogout()">
+                    <ion-item routerDirection="root" lines="none"  detail="false" routerLinkActive="selected" color="siderbarcontent" (click)="confirmLogout()">
                         <ion-icon name="power-outline" color="white" ></ion-icon> &nbsp;&nbsp; &nbsp;
                         <ion-label>Log Out</ion-label>
                     </ion-item>

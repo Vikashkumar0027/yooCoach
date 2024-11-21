@@ -19,6 +19,10 @@ export class ChatService {
    return this.http.post<any>(featureConfig.sentChat, data);
   }
 
+  zoomCreateSignature(data: any): Observable<any>{
+   return this.http.post<any>(featureConfig.zoomCreateSignature, data);
+  }
+
   liveClass(): Observable<any>{
     return this.http.get<any>(featureConfig.liveClass);
    }
@@ -26,10 +30,5 @@ export class ChatService {
   agoraLiveClass(): Observable<any>{
     return this.http.get<any>(featureConfig.agoraMeetingList);
    }
-
-   zoomCreateSignature(data: any): Observable<any>{
-    return this.http.post<any>(featureConfig.zoomCreateSignature, data);
-   }
- 
 
 }

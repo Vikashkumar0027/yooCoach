@@ -10,6 +10,7 @@ import { AuthUidService } from 'src/app/provider/authUid/auth-uid.service';
 import { NavController } from '@ionic/angular';
 import { AnswerCheckerComponent } from 'src/app/share-components/answer-checker/answer-checker.component';
 
+
 @Component({
   selector: 'app-quiz-questions',
   templateUrl: './quiz-questions.page.html',
@@ -36,6 +37,8 @@ export class QuizQuestionsPage implements OnInit {
   totalSkipQuestion: number = 0;
   completation:any;
 
+  
+  // public isdata = '<p>44<math xmlns="http://www.w3.org/1998/Math/MathML"><msqrt><mn>43</mn></msqrt><mo>&#160;</mo><mo>+</mo><mstyle displaystyle="false"><munderover><mo>&#8721;</mo><mn>5</mn><mn>5</mn></munderover></mstyle></math></p>';
   constructor(
     private router: Router, 
     private route: ActivatedRoute,
@@ -47,7 +50,7 @@ export class QuizQuestionsPage implements OnInit {
     ) {}
 
   async ngOnInit() {
-    const tokenDAta = await this.commonService.getStorage('gurukultkns');
+    const tokenDAta = await this.commonService.getStorage('token');
     const tokens = JSON.parse(tokenDAta.value);
     this.authToken.getUid(tokens);
     // this.questionList1();

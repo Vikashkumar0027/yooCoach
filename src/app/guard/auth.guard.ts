@@ -14,7 +14,7 @@ export class AuthGuard implements CanLoad {
       route: Route,
       segments: UrlSegment[]): Promise<boolean> {
     // return true;
-    const token= await this.commonService.getStorage('gurukultkns');
+    const token= await this.commonService.getStorage('token');
     const id = JSON.parse(token.value);
   try {
     if(id){

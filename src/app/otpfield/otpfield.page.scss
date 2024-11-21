@@ -6,10 +6,9 @@
 }
 
 ion-content {
-    // --background: linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(22, 141, 209, 1));
-    --background: linear-gradient(360deg, rgba(138,138,138,0) 0%, rgba(138,138,138,0) 30.9%, #000 65.1%, #000 100%);
+    --background: linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(22, 141, 209, 1));
     ion-img {
-        width: 312px;
+        width: 100px;
     }
 }
 
@@ -23,8 +22,8 @@ ion-content {
     bottom: 0;
     position: fixed;
     margin: auto;
-    border-top-left-radius: 46px;
-    border-top-right-radius: 46px;
+    border-top-left-radius: 35px;
+    border-top-right-radius: 35px;
 }
 
 .heading {
@@ -32,7 +31,6 @@ ion-content {
     h1 {
         font-size: 1.6rem;
         font-weight: bolder;
-        color: #f6225e;
     }
     .login-form {
         .form-input {

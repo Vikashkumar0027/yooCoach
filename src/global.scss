@@ -200,7 +200,7 @@ p {
 .ion-border {
     background: #FFFFFF;
     border: 1px solid #DADADA;
-    border-radius: 5px;
+    border-radius: 10px;
     margin-top: 8px;
     height: 55px;
 }
@@ -281,6 +281,11 @@ html, body {
 // .footer__leave-btn {
 //     left: -199px !important;
 // }
+//   footer__leave-btn ax-outline ellipsis zmu-btn--danger zmu-btn__outline--blue
+  
+// .zmu-btn{
+//     margin-right: -85px;
+//   }
 
 .more-button__pop-menu {
     text-align: unset;

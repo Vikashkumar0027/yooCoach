@@ -14,6 +14,8 @@ export class QuizelistPage implements OnInit {
   setList:any[]=[];
   chapter:any[]=['Chapter 1','Chapter 2','Chapter 3','Chapter 4','Chapter 5','Chapter 6','Chapter 7','Chapter 8'];
   folder: string;
+  quizScoreData:any[]=[];
+
   constructor(private global:GlobalService,
     private activatedRoute: ActivatedRoute,
     private router:Router,
@@ -26,6 +28,7 @@ export class QuizelistPage implements OnInit {
   ngOnInit() {
     this.global.showLoader();
     this.snapData();
+    this.getScroreCard()
   //  this.folder = this.activatedRoute.snapshot.paramMap.get('id');
   //  console.log('kaam kar raha hai',this.folder);
   //  this.getQuestionList(this.folder);
@@ -44,7 +47,7 @@ export class QuizelistPage implements OnInit {
   }
 
   async getSetList(param){
-      const tokenDAta = await this.commonService.getStorage('gurukultkns');
+      const tokenDAta = await this.commonService.getStorage('token');
     const tokens = JSON.parse(tokenDAta.value);
     this.authToken.getUid(tokens)
     // const data = { "admin_id":jwtToken.payload.user.admin_id, "subject":subject };
@@ -68,7 +71,7 @@ export class QuizelistPage implements OnInit {
   }
 
   // async getQuestionList(subject){
-  //   const tokenDAta = await this.commonService.getStorage('gurukultkns');
+  //   const tokenDAta = await this.commonService.getStorage('token');
   //   const tokens = JSON.parse(tokenDAta.value);
   //   this.authToken.getUid(tokens);
   //   const jwtToken:any = await this.commonService.jwtToken();
@@ -91,12 +94,33 @@ export class QuizelistPage implements OnInit {
   //   this.global.modalDismiss();
   // }
 
+  async getScroreCard(){
+    const token = await this.commonService.getStorage('token');
+    const tokens = JSON.parse(token.value);
+    this.authToken.getUid(tokens);
+
+    const jwt:any = await this.commonService.jwtToken();
+   
+    this.quizListService.scroreCard(jwt.payload.user._id).subscribe(res=>{
+      console.log('scrore car54d api',res);
+      if(res.success==true){
+        this.quizScoreData=res.data;
+        this.global.hideLoader();
+      }
+      
+    },
+    (err)=>{
+      this.global.hideLoader();
+      this.commonService.tokenOutOfValid(err);
+    })
+  }
+
   datas(param){
     console.log('kaam kar raha hai',param);
     console.log('url',this.router.url);
+    const isResultAvilable = this.quizScoreData.filter(x=>x.qset == param._id);
 
     const data = {time:param.qps_time, _ID: param._id};
-    // console.log('navData', data);
     const navData: NavigationExtras = {
       queryParams: {
         data: JSON.stringify(data)
@@ -104,7 +128,11 @@ export class QuizelistPage implements OnInit {
     };
     // console.log('navData', data);
     // this.router.navigate(['/', 'tabs', 'quizelist', id]);
-    this.router.navigate(['/', 'tabs', 'quizelist','quiz-questions'], navData);
+    if(isResultAvilable.length){
+      this.global.errorToast('You have already given the test');
+    }else{
+      this.router.navigate(['/', 'tabs', 'quizelist','quiz-questions'], navData);
+    }
     // this.router.navigate([this.router.url,'quiz-questions'], navData);
   }
 

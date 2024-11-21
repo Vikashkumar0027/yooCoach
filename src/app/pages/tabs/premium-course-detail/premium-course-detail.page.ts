@@ -107,7 +107,7 @@ this.global.errorToast('Something went wrong');
   async openRazorpayDashBord(data){
     this.global.hideLoader();
     const param = {
-      name: 'YOO COACH',
+      name: 'RB Singh',
       email: this.userDetails?.email,
       phone: Number(this.userDetails?.mobile_number),
       amount: data.amount,

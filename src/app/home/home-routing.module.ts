@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomePage } from './home.page';
 import { SignupComponent } from '../share-components/signup/signup.component';
 import { TermConditionComponent } from '../share-components/term-condition/term-condition.component';
+import { AdminLoginComponent } from '../share-components/admin-login/admin-login.component';
+import { LoginGuard } from '../guard/login/login.guard';
 
 const routes: Routes = [
   {
@@ -16,6 +18,11 @@ const routes: Routes = [
   {
     path: 'termCondition',
     component: TermConditionComponent,
+  },
+  {
+    path: 'adminLogin',
+    component: AdminLoginComponent,
+    // canLoad:[LoginGuard]
   }
 ];
 

@@ -1,4 +1,5 @@
 <!-- *ngIf="!containertab" -->
+
 <ion-content class="content" *ngIf="!containertab">
 
     <ng-container>
@@ -52,23 +53,39 @@
                             <ion-badge slot="end" color="lightyellow">5</ion-badge>
                         </ion-item-divider>
                     </ion-card-header>
-
-                    <!-- *ngIf="questionLists.length>0" -->
+                
                     <ion-card-content>
+                    
                         <app-mathjx [mathString]="questionLists[currentQuestion]?.question"></app-mathjx>
-                       
+                        <!-- <strong  [innerHTML]="questionLists[currentQuestion]?.question"> -->
+                            <!-- 6. How many student in your classroom -------from Noida? -->
+                            
+                            <!-- {{questionLists[currentQuestion]?.question}} -->
+                        <!-- </strong> -->
                     </ion-card-content>
                 </ion-card>
 
-             
+                <!-- Its Show Question [(ngModel)]="selectedValue"  (ionChange)="checkValue(option)"  -->
                 <ion-list class="ion-no-padding  cardboder">
                     <ion-radio-group [value]='values'>
- 
+ <!-- approxItemHeight="120px" -->
+                        <!-- <ion-virtual-scroll [items]="questionLists[currentQuestion]?.options" > 
+                           
+                            
+                            <ion-item lines="none" color="transparent" color="dashboard"
+                            *virtualItem="let option" (click)="checkValue(option)">
+                                <ion-label  [innerHTML]="option?.option"></ion-label>
+                                <ion-radio slot="end" [value]="option?.option"></ion-radio>
+                            </ion-item>
+                        </ion-virtual-scroll> -->
                         
                         <ion-item lines="none" color="transparent" color="dashboard"
                             *ngFor="let option of questionLists[currentQuestion]?.options" (click)="checkValue(option)">
                             <app-mathjx [mathString]="option?.option"></app-mathjx>
                             <!-- <ion-label  [innerHTML]="option?.option"></ion-label> -->
+                            <!-- <ckeditor [editor]="Editor" [config]="{ toolbar: [ ] }" class="customs"
+                        [disabled]="true" ngModel="{{option?.option}}"></ckeditor> -->
+                        
                             <ion-radio slot="end" [value]="option?.option"></ion-radio>
                             <!-- <ion-radio slot="end" [value]="option?.option"></ion-radio> -->
                         </ion-item>
@@ -180,11 +197,13 @@
         </div>
 
         <div class="texts">
-         
+            <!-- <ion-label>It is a long established fact that a reader will be distracted by the readable content of a page
+                when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less
+                normal</ion-label> -->
 
         </div>
 
 
     </ng-container>
-    <ion-button color="yellow" expand="full" (click)="checkAnswer()">Check Answer</ion-button>
+    <ion-button expand="full" (click)="checkAnswer()">Check Answer</ion-button>
 </ion-content>

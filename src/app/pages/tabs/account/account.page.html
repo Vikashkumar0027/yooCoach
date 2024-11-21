@@ -1,5 +1,5 @@
 <ion-header>
-    <ion-toolbar color="pinks">
+    <ion-toolbar color="darkblue">
         <ion-buttons class="courses-panel">
             <ion-menu-button>
                 <ion-icon class="menuicon" name="menu-outline"></ion-icon> 
@@ -120,15 +120,15 @@
                     </ion-col>
                 </ion-row>
                 <ion-row *ngIf="!isFreeAccess">
-                    <ion-col  class="profile-image">
+                    <ion-col *ngIf="!isErrorImg" class="profile-image">
                        <figure>
-                            <ion-img [src]="apidata?.student_photo" alt="Student Image" width="200px" ></ion-img>
+                            <ion-img [src]="apidata?.student_photo" alt="Student Image" width="200px" (ionError)="onImageError()" ></ion-img>
                        </figure>
                       </ion-col>
                     
                 </ion-row>
                 <ion-row *ngIf="!isFreeAccess">
-                    <ion-col *ngIf='apidata?.student_photo == ""' >
+                    <ion-col *ngIf='apidata?.student_photo == "" || isErrorImg' >
                     <!-- <ion-col size="6"> -->
 
                     
@@ -151,7 +151,7 @@
 
             </ion-grid>
 <!-- [disabled]="!f1.valid" -->
-            <ion-button *ngIf="apidata?.student_photo == '' || isFreeAccess" class="custom-btn ion-padding"  type="submit" expand="full block" size="large" color="yellow">Update profile</ion-button>
+            <ion-button *ngIf="apidata?.student_photo == '' || isFreeAccess || isErrorImg" class="custom-btn ion-padding"  type="submit" expand="full block" size="large" color="dark-orange">Update profile</ion-button>
         </form>
     </ng-container>
 

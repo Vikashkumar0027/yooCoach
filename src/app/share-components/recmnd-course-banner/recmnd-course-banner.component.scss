@@ -1,42 +1,67 @@
-.reccomendedcard{
-    padding: 20px 23px 7px 22px;
-        ion-button{
-            padding: 12px 17px;
-            margin: -16px;
-        }
-        ion-img {
-            // width: 280px;
-            // height: 186px;
-            // object-fit: contain;
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            padding-bottom: 7px;
-          }
+.reccomendedcard {
+    padding: 20px 23px 20px 22px;
+    border-radius: 15px;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+
+    ion-button {
+        // padding: 12px 17px;
+        // margin: -16px;
+        height: 40px;
+        display: block;
+    }
+
+    ion-img {
+        // width: 280px;
+        // height: 186px;
+        // object-fit: contain;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        margin: 12px 0 6px;
+    }
 }
 
-.main{
-    padding-top: 3px;
-    .shadow-box {
-      display: flex;
-      align-items: baseline;
-      margin: -15px;
-      ion-note{
-          font-size: 13px;
-          font-weight: bold;
-      }
-      ion-icon{
-          font-size: 10px;
-          margin-top: 13px;
-          width: 8%;
-      }
-  }
-  }
+.rate-of-course {
+    h2 {
+        margin-bottom: 2px;
+        font-weight: 700;
+        margin-top: 4px;
+    }
+    ion-label {
+        margin-bottom: 9px;
+        display: block;
+    }
+}
 
-  .line{
+.main {
+    padding-top: 3px;
+
+    .shadow-box {
+        display: flex;
+        align-items: baseline;
+        margin: 0 0 3px 0;
+
+        ion-note {
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        ion-icon {
+            font-size: 12px;
+            margin-top: 13px;
+            width: 8%;
+        }
+        p{
+            margin-bottom: 0 !important;
+        }
+    }
+}
+
+.line {
     border-bottom: 1px solid rgba(0, 0, 0, 0.20);
     margin: 0;
     padding: 0;
     // border-bottom: 2px solid black;
     height: 4px;
- }
+    margin-top: 12px;
+}

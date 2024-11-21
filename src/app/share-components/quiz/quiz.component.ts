@@ -29,7 +29,7 @@ model: any ={
   } 
 
   async getScroreCard(){
-    const token = await this.commonService.getStorage('gurukultkns');
+    const token = await this.commonService.getStorage('token');
     const tokens = JSON.parse(token.value);
     this.authToken.getUid(tokens);
 

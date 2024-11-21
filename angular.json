@@ -35,9 +35,8 @@
             "src/global.scss",
             "src/main.css"
           ],
-            "scripts": [
-              "src/main.js"
-            ],
+          
+            "scripts": [],
             "aot": false,
             "vendorChunk": true,
             "extractLicenses": false,

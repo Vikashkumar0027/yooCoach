@@ -47,7 +47,7 @@ export class TestPage implements OnInit {
   }
 
   async subjetcdataList(){
-    const tokenDAta = await this.commonService.getStorage('gurukultkns');
+    const tokenDAta = await this.commonService.getStorage('token');
     const tokens = JSON.parse(tokenDAta.value);
     this.authToken.getUid(tokens);
     this.quizListService.getSubject().subscribe(res=>{
@@ -72,7 +72,7 @@ export class TestPage implements OnInit {
   }
 
 //  async InterCepetorToken(){
-//     const tokenDAta = await this.commonService.getStorage('gurukultkns');
+//     const tokenDAta = await this.commonService.getStorage('token');
 //     const tokens = JSON.parse(tokenDAta.value);
 //     this.authToken.getUid(tokens);
 //   }
