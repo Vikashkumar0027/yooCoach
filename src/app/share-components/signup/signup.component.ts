@@ -132,14 +132,14 @@ export class SignupComponent implements OnInit {
           // this.imageSrc = resolve;
           // this.file = resolve;
 
-          this.dataURLtoFile(resolve);
+          this.dataURLtoFile(resolve,imgfile);
 
         });
       };
     }
   }
 
-  dataURLtoFile(dataurl){
+  dataURLtoFile(dataurl,imgfile){
     const arr = dataurl.split(',');
     const mime = arr[0].match(/:(.*?);/)[1];
     const bstr = atob(arr[1]);
@@ -148,7 +148,7 @@ export class SignupComponent implements OnInit {
     while (n--) {
         u8arr[n] = bstr.charCodeAt(n);
     }
-    this.file = new File([u8arr], 'filename', {type: 'image/jpeg'});
+    this.file = new File([u8arr], imgfile.name, {type: 'image/jpeg'});
     console.log(this.file);
   }
 
@@ -202,8 +202,8 @@ export class SignupComponent implements OnInit {
          formData.append('name',param.value.name);
          formData.append('father_name',param.value.fatherName);
          formData.append('mother_name',param.value.motherName);
-         formData.append('email', param.value.email);
-         formData.append('password', param.value.Password);
+         formData.append('email', param.value.email.trim());
+         formData.append('password', param.value.Password.trim());
          formData.append('sex', param.value.gender);
          formData.append('mobile_number', param.value.phone);
          formData.append('contact_guardian_no', param.value.fatherNumber);
@@ -218,7 +218,7 @@ export class SignupComponent implements OnInit {
             // console.log(res);
             if(res.success){
               this.global.hideLoader();
-              this.global.successToast('Your account has been created successfully.Please wait for approval.');
+              this.global.successToast('Your account has been created successfully. Please wait for R.B. Singh sir approval.')
               this.fillForm.reset();
               this.router.navigate(['/home']);
             }

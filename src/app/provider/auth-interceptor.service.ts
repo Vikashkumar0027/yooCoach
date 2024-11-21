@@ -29,7 +29,7 @@ this.authuidServie.uid.subscribe(res => {
           // .set('No-Auth', 'True')
           // .set('content-type', 'application/json')
     if(req.url) {
-      if(req.url.indexOf('login_by_otp') >= 0 || req.url.indexOf('verify_otp') >=0 || req.url.indexOf('save') >=0
+      if(req.url.indexOf('login_by_otp') >= 0 || req.url.indexOf('verify_otp') >=0 || req.url.indexOf('login') >=0 || req.url.indexOf('save') >=0
       || req.url.indexOf('password') >=0 || req.url.indexOf('classlist') >=0 || req.url.indexOf('sessionlist') >=0 || req.url.indexOf('batchlist') >=0 || req.url.indexOf('signin') >=0 || req.url.indexOf('verify') >=0 || req.url.indexOf('user') >=0){
         const cloned = req.clone({
           headers: req.headers

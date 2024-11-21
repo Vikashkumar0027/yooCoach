@@ -18,6 +18,9 @@ export class LoginService {
    signin(data: any): Observable<any>{
     return this.http.post<any>(featureConfig.otp, data);
    }
+   adminLogin(data: any): Observable<any>{
+    return this.http.post<any>(featureConfig.adminLogin, data);
+   }
 
    otpVerify(data: any): Observable<any>{
     return this.http.post<any>(featureConfig.otpVerify, data);

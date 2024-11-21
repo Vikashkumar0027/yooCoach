@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.yoocoach">
 
-    <!-- android:MixedContentMode="2"
-    android:Scheme="http" -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true" >
+        android:usesCleartextTraffic="true">
 
         <activity
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
@@ -44,25 +42,16 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <!-- Required only if your app needs to access images or photos
-     that other apps created. -->
+  
 <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
-<!-- Required only if your app needs to access videos
-     that other apps created. -->
-<uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
-<!-- Required only if your app needs to access audio files
-     that other apps created. -->
-<uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
-<!-- If your app doesn't need to access media files that other apps created,
-     set the "maxSdkVersion" attribute to "28" instead. -->
-<!-- <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
-                 android:maxSdkVersion="32" />
 
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-                 android:maxSdkVersion="29" /> -->
+<uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+
+<uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+
 
                  <uses-permission android:name="android.permission.CAMERA" />
-                 <!-- <uses-permission android:name="android.permission.MICROPHONE" /> -->
+                 
                  <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
                  <uses-feature android:name="android.hardware.camera" />
                  <uses-feature android:name="android.hardware.camera.autofocus" />
@@ -70,9 +59,9 @@
                  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
                  <uses-permission android:name="android.permission.AUDIO" />
                  <uses-permission android:name="android.hardware.microphone" android:required="true" />
-<!-- <uses-feature android:name="android.hardware.camera" android:required="true" /> -->
-<!-- geolocatin permision -->
+
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<!-- <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> -->
 <uses-feature android:name="android.hardware.location.gps" />
+
 </manifest>

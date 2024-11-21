@@ -1,6 +1,6 @@
 
 <ion-header mode="md">
-  <ion-toolbar color="pinks" class="">
+  <ion-toolbar color="darkblue" class="">
       <ion-title class="ion-no-padding">
           <ion-label>Recommended Courses
           </ion-label>
@@ -32,9 +32,9 @@
                   <!-- its for Only For Line -->
                   <ion-item class="line ion-no-margin" color="transparent"></ion-item>
 
-                  <ion-grid>
+                  <ion-grid class="ion-no-padding ion-padding-top">
                     <ion-row *ngIf="checkPrice(list)">
-                      <ion-col>
+                      <ion-col class="rate-of-course">
                         <h2>₹ {{list?.price}}</h2>
                         <ion-label>{{list?.description}}</ion-label>
                       
@@ -47,7 +47,7 @@
                       </ion-col>
                     </ion-row>
                     <ion-row *ngIf="!checkPrice(list)">
-                      <ion-col>
+                      <ion-col class="rate-of-course">
                         <h2>₹ 0</h2>
                         <ion-label>{{list?.description}}</ion-label>
                       
@@ -60,12 +60,12 @@
                       </ion-col>
                     </ion-row>
                     <ion-row>
-                        <ion-col>
-                            <ion-button expand="full" (click)="premiumCourse(list)" color="yellow">Explore</ion-button>
+                      <ion-col class="ion-margin-end">
+                            <ion-button class="spoken-card" (click)="premiumCourse(list)" color="darkyellow">Explore</ion-button>
                         </ion-col>
-                        <ion-col>
-                            <ion-button *ngIf="checkPrice(list)" expand="full" (click)="buyVdo(list)" color="pinks">Buy Now</ion-button>
-                            <ion-button *ngIf="!checkPrice(list)" expand="full" (click)="fullDiscountVdo(list)" color="pinks">Buy Now</ion-button>
+                        <ion-col class="ion-margin-start">
+                            <ion-button *ngIf="checkPrice(list)" class="spoken-card" (click)="buyVdo(list)" color="dark-orange">Buy Now</ion-button>
+                            <ion-button *ngIf="!checkPrice(list)" class="spoken-card" (click)="fullDiscountVdo(list)" color="dark-orange">Buy Now</ion-button>
                         </ion-col>
                     </ion-row>
                   </ion-grid>

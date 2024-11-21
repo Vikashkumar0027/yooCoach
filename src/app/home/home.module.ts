@@ -8,6 +8,7 @@ import { HomePageRoutingModule } from './home-routing.module';
 import { LoginwithPasswordComponent } from '../share-components/loginwith-password/loginwith-password.component';
 import { SignupComponent } from '../share-components/signup/signup.component';
 import { TermConditionComponent } from '../share-components/term-condition/term-condition.component';
+import { AdminLoginComponent } from '../share-components/admin-login/admin-login.component';
 
 
 @NgModule({
@@ -18,6 +19,6 @@ import { TermConditionComponent } from '../share-components/term-condition/term-
     HomePageRoutingModule,
     ReactiveFormsModule
   ],
-  declarations: [HomePage,LoginwithPasswordComponent,SignupComponent,TermConditionComponent]
+  declarations: [HomePage,LoginwithPasswordComponent,SignupComponent,TermConditionComponent,AdminLoginComponent]
 })
 export class HomePageModule {}

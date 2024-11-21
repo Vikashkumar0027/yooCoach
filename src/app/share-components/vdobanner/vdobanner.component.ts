@@ -67,7 +67,7 @@ export class VdobannerComponent implements OnInit {
   }
 
   async vdoUrlApi(){
-    const tokenDAta = await this.commonService.getStorage('gurukultkns');
+    const tokenDAta = await this.commonService.getStorage('token');
     const tokens = JSON.parse(tokenDAta.value);
     this.authToken.getUid(tokens);
     const jwt:any = await this.commonService.jwtToken();

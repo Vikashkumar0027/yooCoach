@@ -72,7 +72,7 @@ class:any[]=[
 
 
   async getAllSubjectApi(){
-      const token = await this.commonService.getStorage('gurukultkns');
+      const token = await this.commonService.getStorage('token');
       const tokens = JSON.parse(token.value);
       this.authuid.getUid(tokens);
 this.subjectService.getData().subscribe(res => {
@@ -125,7 +125,7 @@ this.subjectService.getData().subscribe(res => {
       }
 
       async getToken(){
-      const token =await this.commonService.getStorage('gurukultkns');
+      const token =await this.commonService.getStorage('token');
       this.authuid.getUid(token.value);
       }
 

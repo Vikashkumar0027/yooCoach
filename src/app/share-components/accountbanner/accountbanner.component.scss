@@ -1,8 +1,7 @@
 ion-radio-group {
     ion-row {
-        // background: #8B9BA8;
-        // background: #8B9BA8;
-        background: #000;
+        background: #8B9BA8;
+        background: #8B9BA8;
         padding: 7px 12px 4px;
         ion-item {
             font-size: 15px;
@@ -22,11 +21,9 @@ ion-radio-group {
         }
         .item-radio-checked {
             width: 100%;
-            background: linear-gradient(0deg, rgb(243,251,4), rgb(243,251,4));
-            // background: linear-gradient(0deg, rgb(255, 179, 71), rgb(255, 204, 51));
+            background: linear-gradient(0deg, rgb(255, 179, 71), rgb(255, 204, 51));
             border-color: transparent;
-            color: #000 !important;
-            font-weight: 500;
+            color: #000;
             height: 45px;
         }
     }

@@ -45,7 +45,7 @@ export class CommonService {
    }
   //  return await
    async jwtToken(){
-    const data = await this.getStorage('gurukultkns');
+    const data = await this.getStorage('token');
       const tokens = JSON.parse(data.value);
       return jwt_decode(tokens);
    }

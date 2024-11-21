@@ -9,7 +9,6 @@ import { QuizQuestionsPageRoutingModule } from './quiz-questions-routing.module'
 import { QuizQuestionsPage } from './quiz-questions.page';
 import { AnswerCheckerComponent } from 'src/app/share-components/answer-checker/answer-checker.component';
 import { ShareComponentsModule } from 'src/app/share-components/share-components.module';
-
 @NgModule({
   imports: [
     CommonModule,

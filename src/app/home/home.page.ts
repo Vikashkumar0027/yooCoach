@@ -90,8 +90,7 @@ export class HomePage implements OnInit {
                 this.userdataService.getUserData(res); //its only for menbar true false
                 if(res?.success === true){       
                   this.global.hideLoader();
-                  this.commonService.setStorage('gurukultkns',res.token);
-                  // this.commonService.setStorage('token',res.token);
+                  this.commonService.setStorage('token',res.token);
                   this.authUid.getUid(res.token);
                   this.router.navigateByUrl('/tabs');
                   // this.commonService.setStorage('otpCode', res.message);
@@ -114,13 +113,15 @@ export class HomePage implements OnInit {
               )
   }
 
-  error:any;
-  onSubmitNewUser(){
-if(this.form.invalid){
-  this.global.errorToast('Please Enter 10 digit mobile number');
-  return;
-}
+  isMobile:boolean=false;
 
+  onSubmitNewUser(){
+    if(this.form.invalid){
+      this.isMobile=true;
+      alert('inValid');
+      return;
+    }
+    this.isMobile=false;
     this.global.showLoader();
    const formData = {"mobile_number":this.form.value.contctnmbr}
     console.log(this.form.value.contctnmbr);
@@ -136,7 +137,6 @@ if(this.form.invalid){
     },err => {
       this.global.hideLoader();
       this.global.errorToast('Somthing went Error');
-      this.error=err
       console.log(err);
     });
   }

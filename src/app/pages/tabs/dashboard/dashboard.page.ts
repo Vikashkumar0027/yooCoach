@@ -83,7 +83,7 @@ export class DashboardPage implements OnInit, OnDestroy {
     this.jwt = await this.commonService.jwtToken();
     this.global.showLoader();
     this.internet = true;
-    const tokenDAta = await this.commonService.getStorage('gurukultkns');
+    const tokenDAta = await this.commonService.getStorage('token');
     const tokens = JSON.parse(tokenDAta.value);
     this.authToken.getUid(tokens);
     this.getItemHttp();
@@ -241,7 +241,7 @@ export class DashboardPage implements OnInit, OnDestroy {
 // ites, work only one device login permission, last Token  and cureent token matched
   async checkOneMobileDeviceLogin(data: any) {
     console.log(data.payload.user._id);
-    const tokenStrng = await this.commonService.getStorage('gurukultkns');
+    const tokenStrng = await this.commonService.getStorage('token');
     const token = JSON.parse(tokenStrng.value);
     console.log(token);
     this.tokenCheckerService.checkToken(data.payload.user._id).subscribe(async res=>{
@@ -514,7 +514,7 @@ this.addCourse(data);
       this.global.hideLoader();
       console.log(this.image);
       const param = {
-        name: 'YOO COACH',
+        name: 'RB Singh',
         email: this.image?.email,
         phone: Number(this.image?.mobile_number),
         amount: data.amount,

@@ -1,7 +1,5 @@
-// const domain = 'http://localhost:3000/';
-// const domain = 'http://18.216.166.94:3000/';
-// const domain = 'http://18.222.194.65:3000/';
-const domain = 'http://3.14.84.150:3000/';
+
+const domain = 'http://43.225.53.245:3500/';
 
 export let otp= domain+'api/login_by_otp';
 export let login = domain+'api/login/password';
@@ -11,6 +9,7 @@ export let subjectCheckboxData= domain+'api/subject_checkbox';
 // notification
 export let notification = domain+'api/notification';
 export let notificationSeen = domain+'api/notification/seen';
+
 
 export let studentProfile = domain+'api/student_objectid';
 export let contactUs = domain+'api/contact_us';
@@ -112,9 +111,14 @@ export let patchDetailFreeUser = domain+'api/student/update';
 
 export let attendanceGet = domain+'api/student/attend';
 
-
 // create signature for zoom meeting
 export let zoomCreateSignature = domain+'api/zoommeeting/sdk';
+
+// admin Login
+export let adminLogin = domain+'api/login';
+export let studentList = domain+'api/student/get';
+export let submitAttnds = domain+'api/attendence/add';
+
 
 
 

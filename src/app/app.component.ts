@@ -68,7 +68,7 @@ export class AppComponent implements OnDestroy {
   // When i Back throuh mobile back botton then work
   backButtonEvent(){
     this.plateform.backButton.subscribeWithPriority(10, () =>{
-      if(this.router.url === "/tabs" || this.router.url === "/tabs/dashboard" || this.router.url === "/home" ){
+      if(this.router.url === "/tabs" || this.router.url === "/tabs/dashboard" || this.router.url === "/home" || this.router.url === "/admin" ){
         this.backButtonAlert();
         this.global.hideLoader();
       }else if(this.router.url === "/tabs/dashboard/liveClasses"){

@@ -8,13 +8,16 @@ import { QuizelistPageRoutingModule } from './quizelist-routing.module';
 
 import { QuizelistPage } from './quizelist.page';
 
+
 @NgModule({
+  declarations: [QuizelistPage],
+
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     QuizelistPageRoutingModule
-  ],
-  declarations: [QuizelistPage]
+  ]
+ 
 })
 export class QuizelistPageModule {}

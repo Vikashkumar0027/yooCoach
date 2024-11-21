@@ -96,7 +96,7 @@
     --ion-color-siderbarcontent-shade: #137cb8;
     --ion-color-siderbarcontent-tint: #2d98d6;
     /** light pink use in notification week dot color  **/
-    --ion-color-lightpink: #FD8E8F;
+    --ion-color-lightpink: #FFB546;
     --ion-color-lightpink-rgb: 253, 142, 143;
     --ion-color-lightpink-contrast: #ffffff;
     // --ion-color-lightpink-contrast: #000000;
@@ -149,6 +149,21 @@
 	--ion-color-darkyellow-shade: #e09e3e;
 	--ion-color-darkyellow-tint: #ffbb59;
 
+    // dart-blues for button
+    --ion-color-dark-blues: #1972B9;
+	--ion-color-dark-blues-rgb: 25,114,185;
+	--ion-color-dark-blues-contrast: #ffffff;
+	--ion-color-dark-blues-contrast-rgb: 255,255,255;
+	--ion-color-dark-blues-shade: #1664a3;
+	--ion-color-dark-blues-tint: #3080c0;
+
+    // light orange for background color
+    --ion-color-light-orange: #FF8888;
+    --ion-color-light-orange-rgb: 255,136,136;
+    --ion-color-light-orange-contrast: #000000;
+    --ion-color-light-orange-contrast-rgb: 0,0,0;
+    --ion-color-light-orange-shade: #e07878;
+    --ion-color-light-orange-tint: #ff9494;
 
      /**Pink color use in inside contactus location background **/
      --ion-color-pinks: #f6225e;
@@ -186,6 +201,23 @@
 	--ion-color-tint: var(--ion-color-pinks-tint);
 }
 
+.ion-color-light-orange {
+	--ion-color-base: var(--ion-color-light-orange);
+	--ion-color-base-rgb: var(--ion-color-light-orange-rgb);
+	--ion-color-contrast: var(--ion-color-light-orange-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-light-orange-contrast-rgb);
+	--ion-color-shade: var(--ion-color-light-orange-shade);
+	--ion-color-tint: var(--ion-color-light-orange-tint);
+}
+
+.ion-color-dark-blues {
+	--ion-color-base: var(--ion-color-dark-blues);
+	--ion-color-base-rgb: var(--ion-color-dark-blues-rgb);
+	--ion-color-contrast: var(--ion-color-dark-blues-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-dark-blues-contrast-rgb);
+	--ion-color-shade: var(--ion-color-dark-blues-shade);
+	--ion-color-tint: var(--ion-color-dark-blues-tint);
+}
 .ion-color-darkyellow {
 	--ion-color-base: var(--ion-color-darkyellow);
 	--ion-color-base-rgb: var(--ion-color-darkyellow-rgb);

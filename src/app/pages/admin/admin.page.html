@@ -1,0 +1,54 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>admin</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-header>
+  <ion-toolbar color="darkblue" lines="none" mode="md">
+    <ion-title>Attendance</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="logout()">
+        <ion-icon name="power-outline" color="white" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+<form #form="ngForm" (ngSubmit)="getStudentList(form)">
+
+  <ion-item lines="none" color="transparent">
+    <ion-select placeholder="Select class" name="class" ngModel (ionChange)="onClassChange($event)" required>
+      <ion-select-option *ngFor="let lst of classes" [value]="lst._id">{{lst.class_name}}</ion-select-option>
+    </ion-select>
+    <ion-select *ngIf="isLoading" slot="end" name="batch" ngModel placeholder="Select Batch" required>
+      <ion-select-option *ngFor="let list of batchList" [value]="list._id">{{list.batch_time}}</ion-select-option>
+    </ion-select>
+
+    <ion-button color="dark-orange" class="search" slot="end" size="small" type="submit">Search</ion-button>
+  </ion-item>
+</form>
+</ion-header>
+
+<ion-content>
+<app-empty-screen *ngIf="!studentList.length" [model]="model"></app-empty-screen>
+
+  <ion-list>
+    <ion-item class="checkboxItem" *ngFor="let lst of studentList">
+      <ion-avatar aria-hidden="true" slot="start">
+        <img alt="" [src]="lst?.student_photo" />
+        <ion-checkbox [(ngModel)]="lst.isChecked" (ionChange)="onCheckboxChange($event,lst)" ></ion-checkbox>
+      </ion-avatar>
+      <ion-label>{{lst.name}}</ion-label>
+      <ion-label slot="end"> Reg. No:-{{lst.reg_no}}</ion-label>
+    </ion-item>
+    
+  </ion-list>
+   
+  
+</ion-content>
+
+<ion-footer color="transparent" *ngIf="studentList.length">
+  <ion-toolbar color="transparent">
+    <ion-button color="dark-orange" class="large-button" size="large" (click)="submitAttendance()">Submit</ion-button>
+  </ion-toolbar>
+</ion-footer>

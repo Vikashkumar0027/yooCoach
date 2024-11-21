@@ -57,7 +57,7 @@ this.global.showLoader();
     // formData.append('contact_no', datas.contact_no);
     console.log("all form data", formData);
    
-    const token = await this.commonService.getStorage('gurukultkns');
+    const token = await this.commonService.getStorage('token');
     const tokens = JSON.parse(token.value);
     this.authuid.getUid(tokens);
     this.personalDetailS.persionalDetails(formData).subscribe(res => {

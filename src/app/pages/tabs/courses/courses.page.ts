@@ -87,7 +87,7 @@ userDetails:any;
   async httpgetdata(){
     try {
       
-    const tokenDAta = await this.commonService.getStorage('gurukultkns');
+    const tokenDAta = await this.commonService.getStorage('token');
     const tokens = JSON.parse(tokenDAta.value);
     this.authToken.getUid(tokens);
     this.getSubject();
@@ -122,7 +122,7 @@ userDetails:any;
   }
 
   async accordiansData(id){
-    const tokenDAta = await this.commonService.getStorage('gurukultkns');
+    const tokenDAta = await this.commonService.getStorage('token');
     const tokens = JSON.parse(tokenDAta.value);
     this.authToken.getUid(tokens);
     // const data={"subject_id":"63942e52abaaae896dee66f7"};

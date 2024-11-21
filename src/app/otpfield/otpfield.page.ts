@@ -77,7 +77,7 @@ console.log(formData)
       this.userdataService.getUserData(res);
       console.log(res);
       if(res.success == true){
-        this.commonService.setStorage('gurukultkns',res.token);
+        this.commonService.setStorage('token',res.token);
         this.authUid.getUid(res.token);
         // this.router.navigateByUrl('/subject-detais'); i have to hide subject detail and personal detail in RBsingh
 

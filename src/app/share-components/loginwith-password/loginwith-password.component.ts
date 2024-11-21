@@ -58,7 +58,7 @@ export class LoginwithPasswordComponent implements OnInit {
           this.userdataService.getUserData(res); //its only for menbar true false
           console.log('login data res',res);
           if(res.success == true){
-            this.commonService.setStorage('gurukultkns',res.token);
+            this.commonService.setStorage('token',res.token);
             this.authUid.getUid(res.token);
             this.router.navigateByUrl('/tabs');
             this.global.hideLoader();

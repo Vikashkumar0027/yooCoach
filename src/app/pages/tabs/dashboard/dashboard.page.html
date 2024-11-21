@@ -1,5 +1,5 @@
 <ion-header [translucent]="true" *ngIf="!isLoadingLoader && internet">
-    <ion-toolbar color="pinks" mode="md">
+    <ion-toolbar color="darkblue" mode="md">
         <ion-grid>
             <ion-row>
                 <ion-col>
@@ -98,13 +98,13 @@
         </div>
 
 <ion-item class="joinNow" color="transparent" lines="none">
-    <ion-button color="pinks" slot="start" [routerLink]="['/tabs/dashboard/liveClasses']">Join Now &nbsp;<ion-img src="assets/img/farrow.png"> </ion-img></ion-button>
+    <ion-button color="lightpink" slot="start" [routerLink]="['/tabs/dashboard/liveClasses']">Join Now &nbsp;<ion-img src="assets/img/farrow.png"> </ion-img></ion-button>
     <ion-img slot="end" src="assets/img/admin.png"> </ion-img>
 </ion-item>
 
       </ion-card>
 <!-- Agora meeting connect -->
-    <!-- <ion-card *ngIf="isagora" class="zoomMeeting" color="darkblue" >
+    <ion-card *ngIf="isagora" class="zoomMeeting" color="darkblue" >
         <ion-card-header class="my-ion-card-header">
                  <ion-card-title>Topic: {{agoraLiveData[0]?.title}}</ion-card-title>
                 <ion-img src="assets/img/liveicon.png"> </ion-img>
@@ -118,12 +118,12 @@
         </div>
 
 <ion-item class="joinNow" color="transparent" lines="none">
-    <ion-button color="pinks" slot="start" [routerLink]="['/tabs/agora-meeting']">Join Now &nbsp;<ion-img src="assets/img/farrow.png"> </ion-img></ion-button>
+    <ion-button color="lightpink" slot="start" [routerLink]="['/tabs/agora-meeting']">Join Now &nbsp;<ion-img src="assets/img/farrow.png"> </ion-img></ion-button>
     <ion-img slot="end" src="assets/img/admin.png"> </ion-img>
 </ion-item>
 
-      </ion-card> -->
-<!-- End Agora -->
+      </ion-card>
+
             <!-- <ion-row class="join-chat">
                 <ion-item *ngIf="liveVideo" class="join-chat-class ion-text-center ion-no-margin ion-no-padding" color="primary">
                     <ion-label class="ion-no-padding" [routerLink]="['/tabs/dashboard/liveClasses']">
@@ -172,7 +172,7 @@
                     <ion-label class="headerLabel">
                       <h2><strong>Paid Recommended Course </strong></h2>
                     </ion-label>
-                    <ion-button [routerLink]="['/tabs/recmnd-view-couse']" class="viewall" color="yellow">View All</ion-button>
+                    <ion-button [routerLink]="['/tabs/recmnd-view-couse']" class="viewall">View All</ion-button>
                 </ion-item>
 
                 <app-recmnd-course-banner [recommendedCourse]="recommendedCourse" (buypreCourse)="buyVdo($event)" (fullDiscount)="fullDiscountVdo($event)"></app-recmnd-course-banner>

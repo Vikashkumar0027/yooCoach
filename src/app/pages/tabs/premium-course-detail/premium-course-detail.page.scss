@@ -26,13 +26,61 @@
 
 .line{
   border-bottom: 1px solid rgba(0, 0, 0, 0.20);
-  margin: 0;
+  margin: 12px 0 0 0;
   padding: 0;
   // border-bottom: 2px solid black;
   height: 4px;
 }
 
+.light-gray {
+  ion-item{
+    &:last-child{
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+  }
+  
+}
+
+.light-gray {
+  ion-item {
+    ion-label{
+      color: #fff !important;
+      font-size: 15px;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+  }
+}
+
+
+.light-gray {
+  ion-item{
+    &:first-child {
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+  }
+}
 
 
 
+.bottom-btn {
+  padding: 8px 30px;
+}
 
+.light-gray {
+  background-color: #f88;
+  border-radius: 5px;
+  padding: 6px 0;
+
+}
+
+
+.primium-amount {
+  h2 {
+    font-weight: 700;
+    font-size: 30px;
+    margin-top: 6px;
+  }
+}

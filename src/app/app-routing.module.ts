@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guard/auth.guard';
 import { LoginGuard } from './guard/login/login.guard';
-
+import { AdminGuard } from './guard/admin/admin.guard';
+import { AdminloginGuard } from './guard/adminLogin/adminlogin.guard';
+// canLoad:[LoginGuard]
 const routes: Routes = [
   {
     path: '',
@@ -13,7 +15,7 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
-    canLoad:[LoginGuard]
+    canActivate:[AdminloginGuard]
   },
   {
     path: 'otpfield',
@@ -36,6 +38,11 @@ const routes: Routes = [
   {
     path: 'tabs/dashboard/:id',
     loadChildren: () => import('./pages/tabs/dashboard/dashboard.module').then( m => m.DashboardPageModule)
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('./pages/admin/admin.module').then( m => m.AdminPageModule),
+    canLoad: [AdminGuard]
   },
 ];
 

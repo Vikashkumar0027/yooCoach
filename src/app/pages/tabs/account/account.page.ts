@@ -33,7 +33,7 @@ header:any[] =[{_id:1,name:'Profile'},{_id:2,name:'Payment'},{_id:3,name:'Attend
 
   async ngOnInit() {
     
-    const token = await this.commonService.getStorage('gurukultkns');
+    const token = await this.commonService.getStorage('token');
     const tokens = JSON.parse(token.value);
     this.authToken.getUid(tokens);
     // this.global.showLoader();
@@ -45,6 +45,11 @@ header:any[] =[{_id:1,name:'Profile'},{_id:2,name:'Payment'},{_id:3,name:'Attend
   // ionViewWillEnter(){
   //   this.getData();
   // }
+  isErrorImg:boolean=false;
+  onImageError(){
+    // this.global.successToast('Please uploade')
+    this.isErrorImg = true;
+  }
 
   ionViewDidEnter(){
     this.global.customeStatusBar(true); 
@@ -153,14 +158,14 @@ freeUserDetail:any;
           this.imageSrc = resolve;
           // this.file = resolve;
 
-          this.dataURLtoFile(resolve);
+          this.dataURLtoFile(resolve,imgfile);
 
         });
       };
     }
   }
 
-  dataURLtoFile(dataurl){
+  dataURLtoFile(dataurl,imageFile){
     const arr = dataurl.split(',');
     const mime = arr[0].match(/:(.*?);/)[1];
     const bstr = atob(arr[1]);
@@ -169,7 +174,7 @@ freeUserDetail:any;
     while (n--) {
         u8arr[n] = bstr.charCodeAt(n);
     }
-    this.file = new File([u8arr], 'filename', {type: 'image/jpeg'});
+    this.file = new File([u8arr], imageFile.name, {type: 'image/jpeg'});
     console.log(this.file);
   }
 
@@ -260,6 +265,7 @@ freeUserDetail:any;
       
         
           this.personalDetailS.persionalDetails(formData).subscribe(res => {
+            this.isErrorImg = false;
             console.log('result of api',res);
             if(res.success == true){
               this.global.successToast('Profile Updated');
